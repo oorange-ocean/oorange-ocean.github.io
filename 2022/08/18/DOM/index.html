@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、DOM简介D——document，没有文档，也就是没有网页，DOM就无从谈起。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM">
+<meta property="og:url" content="http://example.com/2022/08/18/DOM/index.html">
+<meta property="og:site_name" content="莱姆の小站">
+<meta property="og:description" content="一、DOM简介D——document，没有文档，也就是没有网页，DOM就无从谈起。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-18T01:45:19.000Z">
+<meta property="article:modified_time" content="2022-08-18T02:40:43.215Z">
+<meta property="article:author" content="Mr.Lemon">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="DOM">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/08/18/DOM/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/08/18/DOM/","path":"2022/08/18/DOM/","title":"DOM"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>DOM | 莱姆の小站</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">莱姆の小站</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">你所见即是我，好与坏我都不反驳</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81DOM%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、DOM简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81nodeName%E3%80%81nodeValue%E4%BB%A5%E5%8F%8AnodeType%E5%92%8CinnerHTML%E5%92%8Cvalue"><span class="nav-number">2.</span> <span class="nav-text">二、nodeName、nodeValue以及nodeType和innerHTML和value</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81nodeType"><span class="nav-number">2.1.</span> <span class="nav-text">1、nodeType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81nodeName"><span class="nav-number">2.2.</span> <span class="nav-text">2、nodeName</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81nodeValue"><span class="nav-number">2.3.</span> <span class="nav-text">3、nodeValue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81innerHTML"><span class="nav-number">2.4.</span> <span class="nav-text">4、innerHTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81value"><span class="nav-number">2.5.</span> <span class="nav-text">5、value</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81HTML-DOM-%E8%AE%BF%E9%97%AE%E8%8A%82%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">三、HTML DOM 访问节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81getElementById-%E5%92%8CgetElementsByTagName-%E5%92%8CgetElementsByClassName-%E5%92%8CgetElementsByName"><span class="nav-number">3.1.</span> <span class="nav-text">1、getElementById()和getElementsByTagName()和getElementsByClassName()和getElementsByName(</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81childNodes"><span class="nav-number">3.2.</span> <span class="nav-text">2、childNodes</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mr.Lemon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/18/DOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr.Lemon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="DOM | 莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DOM
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-08-18 09:45:19 / Modified: 10:40:43" itemprop="dateCreated datePublished" datetime="2022-08-18T09:45:19+08:00">2022-08-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="一、DOM简介"><a href="#一、DOM简介" class="headerlink" title="一、DOM简介"></a>一、DOM简介</h1><p>D——document，没有文档，也就是没有网页，DOM就无从谈起。</p>
+<span id="more"></span>
+
+<p>当创建了一个网页并把它加载到web浏览器中时，DOM就悄然而生。浏览器根据网页文档创建一个文档对象。</p>
+<p>O——object，对象。</p>
+<p>对象有三种，</p>
+<p>1、用户自定义对象</p>
+<p>2、内建对象，javascript中的对象，如Array，Math，Date等。</p>
+<p>3、宿主对象，由浏览器提供的对象，如window对象。</p>
+<p>M——model，模型。</p>
+<p>正如一个火车模型代表一列真正的火车，DOM代表被加载到浏览器窗口里的当前网页。浏览器为我们提供了当前网页的模型，可通过javascript去读写它。</p>
+<p>所以DOM(Document Object Model)，文档对象模型，可以简单理解为代表网页文档的一颗树（模型）。</p>
+<h1 id="二、nodeName、nodeValue以及nodeType和innerHTML和value"><a href="#二、nodeName、nodeValue以及nodeType和innerHTML和value" class="headerlink" title="二、nodeName、nodeValue以及nodeType和innerHTML和value"></a>二、nodeName、nodeValue以及nodeType和innerHTML和value</h1><p>DOM将网页表示为一颗树，该树的节点类型有多种。</p>
+<p><strong>元素节点</strong>——html标签</p>
+<p><strong>文本节点</strong>——文本</p>
+<p><strong>属性节点</strong>——属性总是被包含在标签里，所以属性节点总是被包含在元素节点当中。（元素节点（属性节点，文本节点））</p>
+<p>通常可以通过开发者工具（如firebug）查看dom结构，但是要说明一点，开发者工具中的DOM并不完整，因为有些元素存在于DOM中，但是不会被开发者工具显示。比如回车会被当做一个文本节点。</p>
+<p>DOM将网页表示为一颗树，该树的节点类型有多种。</p>
+<p><strong>元素节点</strong>——html标签</p>
+<p><strong>文本节点</strong>——文本</p>
+<p><strong>属性节点</strong>——属性总是被包含在标签里，所以属性节点总是被包含在元素节点当中。（元素节点（属性节点，文本节点））</p>
+<p>通常可以通过开发者工具（如firebug）查看dom结构，但是要说明一点，开发者工具中的DOM并不完整，因为有些元素存在于DOM中，但是不会被开发者工具显示。比如回车会被当做一个文本节点。</p>
+<h2 id="1、nodeType"><a href="#1、nodeType" class="headerlink" title="1、nodeType"></a>1、nodeType</h2><p>DOM本质就是一堆节点的集合，由于包含不同类型的信息，所以就有不同类型的节点。接下来看nodeType。</p>
+<p>元素节点，nodeType为1</p>
+<p>属性节点，nodeType为2</p>
+<p>文本节点，nodeType为3</p>
+<p>文档节点(DOCUMENT)，nodeType为9</p>
+<p><strong>Note</strong>：文档节点并不是根元素(html)，因为注释等内容可以出现在根元素之外。所以在构造DOM树时，根元素并不适合作为根节点，所以就出现了文档节点，而根节点作为文档节点的子节点。</p>
+<h2 id="2、nodeName"><a href="#2、nodeName" class="headerlink" title="2、nodeName"></a>2、nodeName</h2><p>对于元素节点，nodeName就是标签名。元素节点也可以通过tagName获取标签名。【update 20170315】</p>
+<p>对于文本节点，nodeName永远是#text</p>
+<p>对于属性节点，nodeName是属性名称</p>
+<p>对于文档节点，nodeName永远是#document</p>
+<p><strong>注意</strong>：</p>
+<p>nodeName是一个只读属性，不能进行设置。</p>
+<p>nodeName所包含的XML元素的标签名称永远是大写的。</p>
+<h2 id="3、nodeValue"><a href="#3、nodeValue" class="headerlink" title="3、nodeValue"></a>3、nodeValue</h2><p>对于元素节点，因为本身不直接包含文本，所以nodeValue是不可用的。</p>
+<p>对于文本节点，nodeValue值为文本值</p>
+<p>对于属性节点，nodeValue值为属性值</p>
+<h2 id="4、innerHTML"><a href="#4、innerHTML" class="headerlink" title="4、innerHTML"></a>4、innerHTML</h2><p>innerHTML只对<strong>元素节点</strong>有用，获取元素节点内容，也就是元素节点包含的文本节点的值。其他节点使用nodeValue。</p>
+<h2 id="5、value"><a href="#5、value" class="headerlink" title="5、value"></a>5、value</h2><p>尽管innerHTML只对<strong>元素节点</strong>有用，但不是所有的元素节点都能使用innerHTML，比如像input 这样的替换元素。其实很好理解，因为input里面不包含文本节点，所以用innerHTML获取不到文本节点的值。可使用value获取其属性值。</p>
+<p>类似的，form里的DOM元素（input select checkbox textarea radio）值获取时都使用value。</p>
+<p>textarea虽然可以访问innerHTML,但是获取的是初始文档中的值，当页面的textarea中的值发生变化时，innerHTML不会及时更新。</p>
+<h1 id="三、HTML-DOM-访问节点"><a href="#三、HTML-DOM-访问节点" class="headerlink" title="三、HTML DOM 访问节点"></a>三、HTML DOM 访问节点</h1><p>DOM的思想就是每个节点都是对象，是对象我们就可以通过一些方法获取它或者改变它的属性等。</p>
+<p>可以通过多种方法来查找DOM元素：</p>
+<p>a、使用getElementById()和getElementByTagName()和getElementsByClassName()方法</p>
+<p>b、通过一个元素节点的parentNode、childNodes、children、firstChild和lastChild和previousSibling和nextSibling</p>
+<p>c、通过document.documentElement和document.body</p>
+<h2 id="1、getElementById-和getElementsByTagName-和getElementsByClassName-和getElementsByName"><a href="#1、getElementById-和getElementsByTagName-和getElementsByClassName-和getElementsByName" class="headerlink" title="1、getElementById()和getElementsByTagName()和getElementsByClassName()和getElementsByName("></a>1、getElementById()和getElementsByTagName()和getElementsByClassName()和getElementsByName(</h2><p>这四种方法会忽略文档的结构。</p>
+<p>getElementById()不多说。</p>
+<p>getElementsByTagName()使用指定标签名返回所有元素，这些元素是调用该方法的元素的后代。</p>
+<p>getElementsByClassName()返回带有指定类名的所有元素的节点列表。</p>
+<p>getElementsByName()根据元素的name属性返回所有元素的节点列表</p>
+<p><strong>还有一些方法是和文档结构相关的，因为DOM树中的节点是紧密相连的</strong></p>
+<p>上——parentNode</p>
+<p>下——childNodes&#x2F;children，firstChild,lastChild</p>
+<p>左&#x2F;右——previousSibling&#x2F;nextSibling</p>
+<h2 id="2、childNodes"><a href="#2、childNodes" class="headerlink" title="2、childNodes"></a>2、childNodes</h2><p> childNodes保存子节点的引用，包括空白也在内（除了IE&lt;9），也包括<script>在内。3、children</p>
+<p>如果只想获得子节点中的元素节点，<strong>跳过文本节点</strong>，应该使用children属性。</p>
+<p>IE<9会在children属性中列出注释节点。</p>
+<p>使用childNodes和children获得是一个集合，想要获得单个元素，可以使用一些快速的索引siblings、parent等。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+              <a href="/tags/DOM/" rel="tag"># DOM</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/17/saomao/" rel="prev" title="三毛的回信：给一个不快乐的女孩">
+                  <i class="fa fa-chevron-left"></i> 三毛的回信：给一个不快乐的女孩
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Lemon</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
