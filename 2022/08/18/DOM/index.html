@@ -22,13 +22,13 @@
 
     <meta name="description" content="一、DOM简介D——document，没有文档，也就是没有网页，DOM就无从谈起。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM">
+<meta property="og:title" content="DOM基础">
 <meta property="og:url" content="http://example.com/2022/08/18/DOM/index.html">
 <meta property="og:site_name" content="莱姆の小站">
 <meta property="og:description" content="一、DOM简介D——document，没有文档，也就是没有网页，DOM就无从谈起。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-18T01:45:19.000Z">
-<meta property="article:modified_time" content="2022-08-18T02:40:43.215Z">
+<meta property="article:modified_time" content="2022-08-18T02:51:19.936Z">
 <meta property="article:author" content="Mr.Lemon">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="DOM">
@@ -39,10 +39,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/08/18/DOM/","path":"2022/08/18/DOM/","title":"DOM"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/08/18/DOM/","path":"2022/08/18/DOM/","title":"DOM基础"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>DOM | 莱姆の小站</title>
+<title>DOM基础 | 莱姆の小站</title>
   
 
 
@@ -111,7 +111,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81DOM%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、DOM简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81nodeName%E3%80%81nodeValue%E4%BB%A5%E5%8F%8AnodeType%E5%92%8CinnerHTML%E5%92%8Cvalue"><span class="nav-number">2.</span> <span class="nav-text">二、nodeName、nodeValue以及nodeType和innerHTML和value</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81nodeType"><span class="nav-number">2.1.</span> <span class="nav-text">1、nodeType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81nodeName"><span class="nav-number">2.2.</span> <span class="nav-text">2、nodeName</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81nodeValue"><span class="nav-number">2.3.</span> <span class="nav-text">3、nodeValue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81innerHTML"><span class="nav-number">2.4.</span> <span class="nav-text">4、innerHTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81value"><span class="nav-number">2.5.</span> <span class="nav-text">5、value</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81HTML-DOM-%E8%AE%BF%E9%97%AE%E8%8A%82%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">三、HTML DOM 访问节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81getElementById-%E5%92%8CgetElementsByTagName-%E5%92%8CgetElementsByClassName-%E5%92%8CgetElementsByName"><span class="nav-number">3.1.</span> <span class="nav-text">1、getElementById()和getElementsByTagName()和getElementsByClassName()和getElementsByName(</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81childNodes"><span class="nav-number">3.2.</span> <span class="nav-text">2、childNodes</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81DOM%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、DOM简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81nodeName%E3%80%81nodeValue%E4%BB%A5%E5%8F%8AnodeType%E5%92%8CinnerHTML%E5%92%8Cvalue"><span class="nav-number">2.</span> <span class="nav-text">二、nodeName、nodeValue以及nodeType和innerHTML和value</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81nodeType"><span class="nav-number">2.1.</span> <span class="nav-text">1、nodeType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81nodeName"><span class="nav-number">2.2.</span> <span class="nav-text">2、nodeName</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81nodeValue"><span class="nav-number">2.3.</span> <span class="nav-text">3、nodeValue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81innerHTML"><span class="nav-number">2.4.</span> <span class="nav-text">4、innerHTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81value"><span class="nav-number">2.5.</span> <span class="nav-text">5、value</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81HTML-DOM-%E8%AE%BF%E9%97%AE%E8%8A%82%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">三、HTML DOM 访问节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81getElementById-%E5%92%8CgetElementsByTagName-%E5%92%8CgetElementsByClassName-%E5%92%8CgetElementsByName"><span class="nav-number">3.1.</span> <span class="nav-text">1、getElementById()和getElementsByTagName()和getElementsByClassName()和getElementsByName(</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81childNodes"><span class="nav-number">3.2.</span> <span class="nav-text">2、childNodes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81children"><span class="nav-number">3.3.</span> <span class="nav-text">3、children</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81firstChild%E5%92%8ClastChild"><span class="nav-number">3.4.</span> <span class="nav-text">4、firstChild和lastChild</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81parentNode%EF%BC%8CpreviousSibling%E5%92%8CnextSibling"><span class="nav-number">3.5.</span> <span class="nav-text">5、parentNode，previousSibling和nextSibling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E7%89%B9%E6%AE%8A%E5%85%A5%E5%8F%A3"><span class="nav-number">3.6.</span> <span class="nav-text">6、特殊入口</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -181,12 +181,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="DOM | 莱姆の小站">
+      <meta itemprop="name" content="DOM基础 | 莱姆の小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          DOM
+          DOM基础
         </h1>
 
         <div class="post-meta-container">
@@ -198,7 +198,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-08-18 09:45:19 / Modified: 10:40:43" itemprop="dateCreated datePublished" datetime="2022-08-18T09:45:19+08:00">2022-08-18</time>
+      <time title="Created: 2022-08-18 09:45:19 / Modified: 10:51:19" itemprop="dateCreated datePublished" datetime="2022-08-18T09:45:19+08:00">2022-08-18</time>
     </span>
 
   
@@ -267,10 +267,33 @@
 <p>上——parentNode</p>
 <p>下——childNodes&#x2F;children，firstChild,lastChild</p>
 <p>左&#x2F;右——previousSibling&#x2F;nextSibling</p>
-<h2 id="2、childNodes"><a href="#2、childNodes" class="headerlink" title="2、childNodes"></a>2、childNodes</h2><p> childNodes保存子节点的引用，包括空白也在内（除了IE&lt;9），也包括<script>在内。3、children</p>
-<p>如果只想获得子节点中的元素节点，<strong>跳过文本节点</strong>，应该使用children属性。</p>
-<p>IE<9会在children属性中列出注释节点。</p>
+<p>一个集合，想要获得单个元素，可以使用一些快速的索引siblings、parent等。</p>
+<h2 id="2、childNodes"><a href="#2、childNodes" class="headerlink" title="2、childNodes"></a>2、childNodes</h2><p> childNodes保存子节点的引用，包括空白也在内（除了IE&lt;9），也包括script在内。</p>
+<h2 id="3、children"><a href="#3、children" class="headerlink" title="3、children"></a>3、children</h2><p>如果只想获得子节点中的元素节点，<strong>跳过文本节点</strong>，应该使用children属性。</p>
+<p>IE&lt;9会在children属性中列出注释节点。</p>
 <p>使用childNodes和children获得是一个集合，想要获得单个元素，可以使用一些快速的索引siblings、parent等。</p>
+<h2 id="4、firstChild和lastChild"><a href="#4、firstChild和lastChild" class="headerlink" title="4、firstChild和lastChild"></a>4、firstChild和lastChild</h2><p>firstChild和lastChild是childNodes中首尾节点的快速索引。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var body=document.body;</span><br><span class="line">alert(body.firstChild===body.childNodes[0]);//true</span><br><span class="line">alert(body.lastChild===body.childNodes[body.childNodes.length-1]);//true</span><br></pre></td></tr></table></figure>
+
+<p>对firstChild最普通的用法是访问某个元素节点的文本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x=[a paragraph];</span><br><span class="line">var text=x.firstChild.nodeValue; </span><br></pre></td></tr></table></figure>
+
+<p><strong>小技能</strong>：</p>
+<p>写代码检查DOM节点是否为空，就是说没有children或者文本。可用以下三种方法”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (elem.childNodes.length) &#123; ... &#125;</span><br><span class="line">if (elem.firstChild) &#123; ... &#125;</span><br><span class="line">if (elem.lastChild) &#123; ... &#125;//最快</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、parentNode，previousSibling和nextSibling"><a href="#5、parentNode，previousSibling和nextSibling" class="headerlink" title="5、parentNode，previousSibling和nextSibling"></a>5、parentNode，previousSibling和nextSibling</h2><p>获取父节点或者左右相邻的节点。</p>
+<p><strong>可借助这些属性来更新DOM，增删元素。</strong></p>
+<p>parentNode属性常被用来改变文档的结构。假设希望从文档中删除带有id为”maindiv”的节点：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var x=document.getElementById(&quot;maindiv&quot;);</span><br><span class="line">x.parentNode.removeChild(x); </span><br></pre></td></tr></table></figure>
+
+<p>首先找到带有指定id的节点，再移至其父节点并执行removeChidld()方法。</p>
+<p>现在有一个问题：</p>
+<p>document.body.lastChild.nextSibling总是null吗？&#x2F;&#x2F;是</p>
+<p>同样document.body.children[0].previousSibling呢?&#x2F;&#x2F;不一定，null或者文本。因为document.body.children[0]代表第一个元素节点，可能会有文本节点作为它 previousSibling。</p>
+<h2 id="6、特殊入口"><a href="#6、特殊入口" class="headerlink" title="6、特殊入口"></a>6、特殊入口</h2><p> 访问DOM还有两个特别的入口——document.documentElement和document.body。</p>
+<p>document.documentElement代表&lt;html&gt;元素。</p>
+<p>document.body代表&lt;body&gt;元素，可以为null，比如在body没有呈现的时候引用就是null。</p>
 
     </div>
 
