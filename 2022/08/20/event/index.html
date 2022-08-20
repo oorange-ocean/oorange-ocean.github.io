@@ -20,23 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="莱姆の小站">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="一、事件事件是文档或者浏览器窗口中发生的，特定的交互瞬间。 事件是用户或浏览器自身执行的某种动作，如click,load和mouseover都是事件的名字。 &lt;!– more –&gt; 事件是javaScript和DOM之间交互的桥梁。 你若触发，我便执行——事件发生，调用它的处理函数执行相应的JavaScript代码给出响应。 典型的例子有：页面加载完毕触发load事件；用户单击元素，触">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaScript事件（一）事件流">
+<meta property="og:url" content="http://example.com/2022/08/20/event/index.html">
 <meta property="og:site_name" content="莱姆の小站">
+<meta property="og:description" content="一、事件事件是文档或者浏览器窗口中发生的，特定的交互瞬间。 事件是用户或浏览器自身执行的某种动作，如click,load和mouseover都是事件的名字。 &lt;!– more –&gt; 事件是javaScript和DOM之间交互的桥梁。 你若触发，我便执行——事件发生，调用它的处理函数执行相应的JavaScript代码给出响应。 典型的例子有：页面加载完毕触发load事件；用户单击元素，触">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typoratypora010945436598199.png">
+<meta property="og:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typora010945579257474.png">
+<meta property="article:published_time" content="2022-08-20T07:55:57.000Z">
+<meta property="article:modified_time" content="2022-08-20T08:17:53.182Z">
 <meta property="article:author" content="Mr.Lemon">
+<meta property="article:tag" content="事件">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typoratypora010945436598199.png">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/08/20/event/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/08/20/event/","path":"2022/08/20/event/","title":"javaScript事件（一）事件流"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>莱姆の小站</title>
+<title>javaScript事件（一）事件流 | 莱姆の小站</title>
   
 
 
@@ -63,7 +71,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">莱姆の小站</h1>
+      <p class="site-title">莱姆の小站</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">你所见即是我，好与坏我都不反驳</p>
@@ -92,7 +100,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -105,6 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%BA%8B%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">一、事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="nav-number">2.</span> <span class="nav-text">二、事件流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81%E6%84%9F%E6%80%A7%E8%AE%A4%E8%AF%86"><span class="nav-number">2.1.</span> <span class="nav-text">1、事件流感性认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="nav-number">2.2.</span> <span class="nav-text">2、事件流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%B8%A4%E7%A7%8D%E4%BA%8B%E4%BB%B6%E6%B5%81%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.2.1.</span> <span class="nav-text">1、两种事件流模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81DOM%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="nav-number">2.2.2.</span> <span class="nav-text">2、DOM事件流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E4%BA%8B%E4%BB%B6%E6%B5%81%E7%9A%84%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">3、事件流的典型应用事件代理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E4%BA%8B%E4%BB%B6%E4%BB%A3%E7%90%86"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">1、事件代理</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -154,16 +163,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/20/event/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -177,13 +187,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 莱姆の小站">
+      <meta itemprop="name" content="javaScript事件（一）事件流 | 莱姆の小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/20/event/" class="post-title-link" itemprop="url">javaScript事件（一）事件流</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          javaScript事件（一）事件流
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -216,7 +226,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="一、事件"><a href="#一、事件" class="headerlink" title="一、事件"></a>一、事件</h1><p><strong>事件是文档或者浏览器窗口中发生的，特定的交互瞬间。</strong></p>
+        <h1 id="一、事件"><a href="#一、事件" class="headerlink" title="一、事件"></a>一、事件</h1><p><strong>事件是文档或者浏览器窗口中发生的，特定的交互瞬间。</strong></p>
 <p>事件是用户或浏览器自身执行的某种动作，如click,load和mouseover都是事件的名字。</p>
 <p>&lt;!– more –&gt;</p>
 <p>事件是javaScript和DOM之间交互的桥梁。</p>
@@ -242,7 +252,6 @@
 <h2 id="3、事件流的典型应用事件代理"><a href="#3、事件流的典型应用事件代理" class="headerlink" title="3、事件流的典型应用事件代理"></a>3、事件流的典型应用事件代理</h2><p>传统的事件处理中，需要为<strong>每个元素</strong>添加事件处理器。js事件代理则是一种简单有效的技巧，通过它可以把事件处理器添加到<strong>一个父级元素</strong>上，从而避免把事件处理器添加到<strong>多个子级元素</strong>上。</p>
 <h4 id="1、事件代理"><a href="#1、事件代理" class="headerlink" title="1、事件代理"></a>1、事件代理</h4><p>事件代理的原理用到的就是事件冒泡和目标元素，把事件处理器添加到父元素，等待子元素事件冒泡，并且父元素能够通过target（IE为srcElement）判断是哪个子元素，从而做相应处理。</p>
 
-      
     </div>
 
     
@@ -250,254 +259,25 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%8B%E4%BB%B6/" rel="tag"># 事件</a>
+          </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/19/dom-operation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr.Lemon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/19/dom-operation/" class="post-title-link" itemprop="url">DOM操作</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-08-19 10:08:19 / Modified: 17:18:34" itemprop="dateCreated datePublished" datetime="2022-08-19T10:08:19+08:00">2022-08-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1、创建新元素（节点）"><a href="#1、创建新元素（节点）" class="headerlink" title="1、创建新元素（节点）"></a>1、创建新元素（节点）</h2><ul>
-<li>createElement()&#x2F;&#x2F;创建一具体的元素</li>
-<li>createTextNode()&#x2F;&#x2F;创建一个文本节点</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/19/dom-operation/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/18/DOM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr.Lemon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/18/DOM/" class="post-title-link" itemprop="url">DOM基础</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-08-18 09:45:19 / Modified: 21:13:45" itemprop="dateCreated datePublished" datetime="2022-08-18T09:45:19+08:00">2022-08-18</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="一、DOM简介"><a href="#一、DOM简介" class="headerlink" title="一、DOM简介"></a>一、DOM简介</h1><p>D——document，没有文档，也就是没有网页，DOM就无从谈起。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/18/DOM/#more" rel="contents">
-                Read more &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/19/dom-operation/" rel="prev" title="DOM操作">
+                  <i class="fa fa-chevron-left"></i> DOM操作
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/17/saomao/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mr.Lemon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/17/saomao/" class="post-title-link" itemprop="url">三毛的回信：给一个不快乐的女孩</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-08-17 16:47:40 / Modified: 17:09:32" itemprop="dateCreated datePublished" datetime="2022-08-17T16:47:40+08:00">2022-08-17</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>你觉得卑微是因为没有用自己的主观眼在观看自己，而用了社会一般的功利主义的眼光</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/17/saomao/#more" rel="contents">
-                Read more &raquo;
-              </a>
+            <div class="post-nav-item">
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          </div>
     </footer>
   </article>
 </div>
+
 
 
 
