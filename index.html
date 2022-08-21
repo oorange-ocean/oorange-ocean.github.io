@@ -126,7 +126,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -182,7 +182,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/20/event/" class="post-title-link" itemprop="url">javaScript事件（一）事件流</a>
+          <a href="/2022/08/20/event/" class="post-title-link" itemprop="url">(转载）JavaScript事件详解</a>
         </h2>
 
         <div class="post-meta-container">
@@ -194,7 +194,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-08-20 15:55:57 / Modified: 16:17:53" itemprop="dateCreated datePublished" datetime="2022-08-20T15:55:57+08:00">2022-08-20</time>
+      <time title="Created: 2022-08-20 17:08:19 / Modified: 17:23:23" itemprop="dateCreated datePublished" datetime="2022-08-20T17:08:19+08:00">2022-08-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -216,32 +216,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="一、事件"><a href="#一、事件" class="headerlink" title="一、事件"></a>一、事件</h1><p><strong>事件是文档或者浏览器窗口中发生的，特定的交互瞬间。</strong></p>
-<p>事件是用户或浏览器自身执行的某种动作，如click,load和mouseover都是事件的名字。</p>
-<p>&lt;!– more –&gt;</p>
-<p>事件是javaScript和DOM之间交互的桥梁。</p>
-<p>你若触发，我便执行——事件发生，调用它的处理函数执行相应的JavaScript代码给出响应。</p>
-<p>典型的例子有：页面加载完毕触发load事件；用户单击元素，触发click事件。</p>
-<h1 id="二、事件流"><a href="#二、事件流" class="headerlink" title="二、事件流"></a>二、事件流</h1><p><strong>事件流描述的是从页面中接收事件的顺序。</strong></p>
-<h2 id="1、事件流感性认识"><a href="#1、事件流感性认识" class="headerlink" title="1、事件流感性认识"></a>1、事件流感性认识</h2><p>问题：单击页面元素，什么样的元素能感应到这样一个事件？</p>
-<p>答案：单击元素的同时，也单击了元素的容器元素，甚至整个页面。</p>
-<p>例子：有三个同心圆， 给每个圆添加对应的事件处理函数，弹出对应的文字。单击最里面的圆，同时也单击了外面的圆，所以外面圆的click事件也会被触发。</p>
-<h2 id="2、事件流"><a href="#2、事件流" class="headerlink" title="2、事件流"></a>2、事件流</h2><p>事件发生时会在元素节点与根节点之间按照特定的顺序传播，路径所经过的所有节点都会收到该事件，这个传播过程即DOM事件流。</p>
-<h3 id="1、两种事件流模型"><a href="#1、两种事件流模型" class="headerlink" title="1、两种事件流模型"></a>1、两种事件流模型</h3><p>事件传播的顺序对应浏览器的两种事件流模型：捕获型事件流和冒泡型事件流。</p>
-<p><strong>冒泡型事件流</strong>：事件的传播是从<strong>最特定</strong>的<strong>事件目标</strong>到最不特定的<strong>事件目标</strong>。即从DOM树的叶子到根。<strong>【推荐】</strong></p>
-<p><strong>捕获型事件流</strong>：事件的传播是从<strong>最不特定</strong>的<strong>事件目标</strong>到最特定的<strong>事件目标</strong>。即从DOM树的根到叶子。</p>
-<p>事件捕获的思想就是不太具体的节点应该更早接收到事件，而最具体的节点最后接收到事件。</p>
-<p><img src="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typoratypora010945436598199.png" alt="img"><img src="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typora010945579257474.png" alt="img"></p>
-<h3 id="2、DOM事件流"><a href="#2、DOM事件流" class="headerlink" title="2、DOM事件流"></a><strong>2、DOM事件流</strong></h3><p>DOM标准采用捕获+冒泡。两种事件流都会触发DOM的所有对象，从document对象开始，也在document对象结束</p>
-<p>DOM标准规定事件流包括三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。</p>
+          <h2 id="1-事件注册"><a href="#1-事件注册" class="headerlink" title="1 事件注册"></a>1 事件注册</h2><p>给元素添加事件就称之为注册事件，注册事件也叫绑定事件。注册事件有两种方式：</p>
 <ul>
-<li>事件捕获阶段：<strong>实际目标</strong>（&lt;div&gt;）在捕获阶段<strong>不会接收事件</strong>。也就是在捕获阶段，事件从document到&lt;html&gt;再到&lt;body&gt;就停止了。上图中为1~3.</li>
-<li>处于目标阶段：事件在&lt;div&gt;上发生并处理。<strong>但是事件处理会被看成是冒泡阶段的一部分</strong>。</li>
-<li>冒泡阶段：事件又传播回文档。</li>
+<li>传统注册方式</li>
+<li>监听注册方式</li>
 </ul>
-<h2 id="3、事件流的典型应用事件代理"><a href="#3、事件流的典型应用事件代理" class="headerlink" title="3、事件流的典型应用事件代理"></a>3、事件流的典型应用事件代理</h2><p>传统的事件处理中，需要为<strong>每个元素</strong>添加事件处理器。js事件代理则是一种简单有效的技巧，通过它可以把事件处理器添加到<strong>一个父级元素</strong>上，从而避免把事件处理器添加到<strong>多个子级元素</strong>上。</p>
-<h4 id="1、事件代理"><a href="#1、事件代理" class="headerlink" title="1、事件代理"></a>1、事件代理</h4><p>事件代理的原理用到的就是事件冒泡和目标元素，把事件处理器添加到父元素，等待子元素事件冒泡，并且父元素能够通过target（IE为srcElement）判断是哪个子元素，从而做相应处理。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/20/event/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
