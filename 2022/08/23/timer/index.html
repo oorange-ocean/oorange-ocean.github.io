@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1.什么是JavaScript计时器？在JavaScript中，我们可以在设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript计时器">
+<meta property="og:url" content="http://example.com/2022/08/23/timer/index.html">
+<meta property="og:site_name" content="莱姆の小站">
+<meta property="og:description" content="1.什么是JavaScript计时器？在JavaScript中，我们可以在设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-23T06:57:15.000Z">
+<meta property="article:modified_time" content="2022-08-23T07:10:50.189Z">
+<meta property="article:author" content="Mr.Lemon">
+<meta property="article:tag" content="计时器">
+<meta property="article:tag" content="防抖节流">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/08/23/timer/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/08/23/timer/","path":"2022/08/23/timer/","title":"JavaScript计时器"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JavaScript计时器 | 莱姆の小站</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">莱姆の小站</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">你所见即是我，好与坏我都不反驳</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFJavaScript%E8%AE%A1%E6%97%B6%E5%99%A8%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1.什么是JavaScript计时器？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%AE%A1%E6%97%B6%E5%99%A8%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">2.计时器类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AE%A1%E6%97%B6%E5%99%A8%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">3.计时器方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E6%97%B6%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">1):一次性计时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%97%B4%E9%9A%94%E6%80%A7%E8%A7%A6%E5%8F%91%E8%AE%A1%E6%97%B6%E5%99%A8"><span class="nav-number">3.2.</span> <span class="nav-text">2):间隔性触发计时器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81%E5%92%8C%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.</span> <span class="nav-text">JavaScript函数节流和函数防抖之间的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81JavaScript%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81%E5%92%8C%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96-%E6%A6%82%E5%BF%B5%E8%A7%A3%E9%87%8A"><span class="nav-number">5.</span> <span class="nav-text">一、JavaScript函数节流和函数防抖-概念解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81"><span class="nav-number">6.</span> <span class="nav-text">二、函数节流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96"><span class="nav-number">7.</span> <span class="nav-text">三、函数防抖</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mr.Lemon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/23/timer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr.Lemon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JavaScript计时器 | 莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JavaScript计时器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-08-23 14:57:15 / Modified: 15:10:50" itemprop="dateCreated datePublished" datetime="2022-08-23T14:57:15+08:00">2022-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="1-什么是JavaScript计时器？"><a href="#1-什么是JavaScript计时器？" class="headerlink" title="1.什么是JavaScript计时器？"></a>1.什么是JavaScript计时器？</h2><p>在JavaScript中，我们可以在设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行。</p>
+ <span id="more"></span>
+
+<h2 id="2-计时器类型"><a href="#2-计时器类型" class="headerlink" title="2.计时器类型"></a>2.计时器类型</h2><p>一次性计时器：仅在指定的延迟时间之后触发一次。<br>间隔性触发计时器：每隔一定的时间间隔就触发一次</p>
+<h2 id="3-计时器方法"><a href="#3-计时器方法" class="headerlink" title="3.计时器方法"></a>3.<strong>计时器方法</strong></h2><h3 id="1-一次性计时器"><a href="#1-一次性计时器" class="headerlink" title="1):一次性计时器"></a>1):一次性计时器</h3><p><strong>A):setTimeout(): 指定的延迟时间之后来执行代码,进执行一次</strong></p>
+<p><strong>语法:setTimeout(代码,延迟时间);</strong></p>
+<p><strong>参数说明：</strong></p>
+<p>\1. 要调用的函数或要执行的代码串。<br>\2. 延时时间：在执行代码前需等待的时间，以毫秒为单位（1s&#x3D;1000ms)。</p>
+<p><strong>B):clearTimeout():取消setTimeout()设置</strong></p>
+<p><strong>语法:clearTimeout(timer)</strong></p>
+<p><strong>参数说明:</strong><br>timer<strong>：</strong>由 setTimeout() 返回的 ID 值。该值标识要取消的延迟执行代码块。</p>
+<h3 id="2-间隔性触发计时器"><a href="#2-间隔性触发计时器" class="headerlink" title="2):间隔性触发计时器"></a>2):间隔性触发计时器</h3><p><strong>A):setInterval():在执行时,从载入页面后每隔指定的时间执行代码</strong></p>
+<p><strong>语法:setInterval(代码,交互时间);</strong></p>
+<p><strong>参数说明：</strong></p>
+<p>\1. 代码：要调用的函数或要执行的代码串。</p>
+<p>\2. 交互时间：周期性执行或调用表达式之间的时间间隔，以毫秒计（1s&#x3D;1000ms）。</p>
+<p><strong>返回值:</strong></p>
+<p>一个可以传递给 clearInterval() 从而取消对”代码”的周期性执行的值。</p>
+<p><strong>调用函数格式(<strong>假设有一个clock()函数</strong>):</strong></p>
+<p>setInterval(“clock()”,1000) 或 setInterval(clock,1000)</p>
+<p><strong>B):clearInterval() 方法可取消由 setInterval() 设置的交互时间</strong></p>
+<p><strong>语法：clearInterval(timer)</strong></p>
+<p><strong>参数说明:</strong><br>timer：由 setInterval() 返回的 ID 值。</p>
+<h2 id="JavaScript函数节流和函数防抖之间的区别"><a href="#JavaScript函数节流和函数防抖之间的区别" class="headerlink" title="JavaScript函数节流和函数防抖之间的区别"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/walls/p/6399837.html">JavaScript函数节流和函数防抖之间的区别</a></h2><h2 id="一、JavaScript函数节流和函数防抖-概念解释"><a href="#一、JavaScript函数节流和函数防抖-概念解释" class="headerlink" title="一、JavaScript函数节流和函数防抖-概念解释"></a>一、JavaScript函数节流和函数防抖-概念解释</h2><p>函数节流和函数防抖，两者都是优化高频率执行js代码的一种手段。<br>在一定时间内，代码执行的次数不一定要非常多。达到一定频率就足够了。因为跑得越多，带来的效果也是一样。倒不如，把js代码的执行次数控制在合理的范围。既能节省浏览器CPU资源，又能让页面浏览更加顺畅，不会因为js的执行而发生卡顿。这就是函数节流和函数防抖要做的事。</p>
+<ul>
+<li>函数节流<strong>是指一定时间内js方法只跑一次。比如人的眨眼睛，就是一定时间内眨一次。这是函数节流最形象的解释。</strong></li>
+<li><strong>函数防抖</strong>是指频繁触发的情况下，只有足够的空闲时间，才执行代码一次。比如生活中的坐公交，就是一定时间内，如果有人陆续刷卡上车，司机就不会开车。只有别人没刷卡了，司机才开车。</li>
+</ul>
+<h2 id="二、函数节流"><a href="#二、函数节流" class="headerlink" title="二、函数节流"></a>二、函数节流</h2><p>函数节流应用的实际场景，多数在监听页面元素滚动事件的时候会用到。因为滚动事件，是一个高频触发的事件。以下是监听页面元素滚动的示例代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数节流</span></span><br><span class="line"><span class="keyword">var</span> canRun = <span class="literal">true</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;throttle&quot;</span>).<span class="property">onscroll</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!canRun)&#123;</span><br><span class="line">		<span class="comment">// 判断是否已空闲，如果在执行中，则直接return</span></span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	canRun = <span class="literal">false</span>;</span><br><span class="line">	<span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;函数节流&quot;</span>);</span><br><span class="line">		canRun = <span class="literal">true</span>;</span><br><span class="line">	&#125;, <span class="number">300</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p> 函数节流的要点是，声明一个变量当标志位，记录当前代码是否在执行。<br> 如果空闲，则可以正常触发方法执行。<br> 如果代码正在执行，则取消这次方法执行，直接<code>return</code>。</p>
+<blockquote>
+<p> 这个方法的作用是监听ID为<code>throttle</code>元素的滚动事件。<br> 当<code>canRun</code>为<code>true</code>，则代表现在的滚动处理事件是空闲的，可以使用。<br> 通过关卡<code>if(!canRun)</code>，等于就拿到了通行证。然后下一步的操作就是立马将关卡关上<code>canRun=false</code>。这样，其他请求执行滚动事件的方法，就被挡回去了。<br> 接着用<code>setTimeout</code>规定最小的时间间隔300，接着再执行<code>setTimeout</code>方法体里面的内容。<br> 最后，等<code>setTimeout</code>里面的方法都执行完毕，才释放关卡<code>canRun=true</code>，允许下一个访问者进来。</p>
+</blockquote>
+<p> 这个函数节流的实现形式，需要注意的是执行的间隔时间是<code>&gt;=300ms</code>。如果具体执行的方法是包含<code>callback</code>的，也可以将<code>canRun=true</code>这一步放到<code>callback</code>中。理解了函数节流的关卡设置重点，其实改起来就简单多了。</p>
+<h2 id="三、函数防抖"><a href="#三、函数防抖" class="headerlink" title="三、函数防抖"></a>三、函数防抖</h2><p> 函数防抖的应用场景，最常见的就是用户注册时候的手机号码验证和邮箱验证了。只有等用户输入完毕后，前端才需要检查格式是否正确，如果不正确，再弹出提示语。以下还是以页面元素滚动监听的例子，来进行解析：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数防抖</span></span><br><span class="line"><span class="keyword">var</span> timer = <span class="literal">false</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;debounce&quot;</span>).<span class="property">onscroll</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="built_in">clearTimeout</span>(timer); <span class="comment">// 清除未执行的代码，重置回初始化状态</span></span><br><span class="line"></span><br><span class="line">	timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">		<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;函数防抖&quot;</span>);</span><br><span class="line">	&#125;, <span class="number">300</span>);</span><br><span class="line">&#125;;	</span><br></pre></td></tr></table></figure>
+
+<p> 函数防抖的要点，也是需要一个<code>setTimeout</code>来辅助实现。延迟执行需要跑的代码。<br> 如果方法多次触发，则把上次记录的延迟执行代码用<code>clearTimeout</code>清掉，重新开始。<br> 如果计时完毕，没有方法进来访问触发，则执行代码。</p>
+<blockquote>
+<p> 这个方法的作用是监听ID为<code>debounce</code>元素的滚动事件<br> 进入滚动事件方法体的时候，做的第一件事就是清除上次未执行的<code>setTimeout</code>。而<code>setTimeout</code>的引用id由变量<code>timer</code>记录。<br> <code>clearTimeout</code>方法，允许传入无效的值。所以这里直接执行<code>clearTimeout</code>即可。<br> 然后，将需要执行的代码放入<code>setTimeout</code>中，再返回<code>setTimeout</code>引用给timer缓存。<br> 如果倒计时<code>300ms</code>以后，还没有新的方法触发滚动事件，则执行<code>setTimeout</code>中的代码。</p>
+</blockquote>
+<p> 函数防抖的实现重点，就是巧用<code>setTimeout</code>做缓存池，而且可以轻易地清除待执行的代码。<br> 其实，用队列的方式也可以做到这种效果。这里就不深入了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E6%97%B6%E5%99%A8/" rel="tag"># 计时器</a>
+              <a href="/tags/%E9%98%B2%E6%8A%96%E8%8A%82%E6%B5%81/" rel="tag"># 防抖节流</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/20/event/" rel="prev" title="(转载）JavaScript事件详解">
+                  <i class="fa fa-chevron-left"></i> (转载）JavaScript事件详解
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Lemon</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
