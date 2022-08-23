@@ -22,29 +22,28 @@
 
     <meta name="description" content="一、DOM简介D——document，没有文档，也就是没有网页，DOM就无从谈起。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM基础">
-<meta property="og:url" content="http://example.com/2022/08/18/DOM/index.html">
+<meta property="og:title" content="DOM基础和BOM">
+<meta property="og:url" content="http://example.com/2022/08/18/DOM+BOM/index.html">
 <meta property="og:site_name" content="莱姆の小站">
 <meta property="og:description" content="一、DOM简介D——document，没有文档，也就是没有网页，DOM就无从谈起。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typora2022%E7%BA%A7%E5%88%91%E4%BA%8B%E7%A7%91%E5%AD%A6%E6%8A%80%E6%9C%AF%E7%8E%8B%E4%B8%80%E8%AF%BA.png">
+<meta property="og:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typora008bwIK2ly1gyjrxm2ea6j30ra06sdhc.jpg">
 <meta property="article:published_time" content="2022-08-18T01:45:19.000Z">
-<meta property="article:modified_time" content="2022-08-18T13:13:45.254Z">
+<meta property="article:modified_time" content="2022-08-23T08:53:54.216Z">
 <meta property="article:author" content="Mr.Lemon">
-<meta property="article:tag" content="javascript">
 <meta property="article:tag" content="DOM">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typora2022%E7%BA%A7%E5%88%91%E4%BA%8B%E7%A7%91%E5%AD%A6%E6%8A%80%E6%9C%AF%E7%8E%8B%E4%B8%80%E8%AF%BA.png">
+<meta name="twitter:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typora008bwIK2ly1gyjrxm2ea6j30ra06sdhc.jpg">
 
 
-<link rel="canonical" href="http://example.com/2022/08/18/DOM/">
+<link rel="canonical" href="http://example.com/2022/08/18/DOM+BOM/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/08/18/DOM/","path":"2022/08/18/DOM/","title":"DOM基础"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/08/18/DOM+BOM/","path":"2022/08/18/DOM+BOM/","title":"DOM基础和BOM"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>DOM基础 | 莱姆の小站</title>
+<title>DOM基础和BOM | 莱姆の小站</title>
   
 
 
@@ -113,7 +112,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81DOM%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、DOM简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81nodeName%E3%80%81nodeValue%E4%BB%A5%E5%8F%8AnodeType%E5%92%8CinnerHTML%E5%92%8Cvalue"><span class="nav-number">2.</span> <span class="nav-text">二、nodeName、nodeValue以及nodeType和innerHTML和value</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81nodeType"><span class="nav-number">2.1.</span> <span class="nav-text">1、nodeType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81nodeName"><span class="nav-number">2.2.</span> <span class="nav-text">2、nodeName</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81nodeValue"><span class="nav-number">2.3.</span> <span class="nav-text">3、nodeValue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81innerHTML"><span class="nav-number">2.4.</span> <span class="nav-text">4、innerHTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81value"><span class="nav-number">2.5.</span> <span class="nav-text">5、value</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81HTML-DOM-%E8%AE%BF%E9%97%AE%E8%8A%82%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">三、HTML DOM 访问节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81getElementById-%E5%92%8CgetElementsByTagName-%E5%92%8CgetElementsByClassName-%E5%92%8CgetElementsByName"><span class="nav-number">3.1.</span> <span class="nav-text">1、getElementById()和getElementsByTagName()和getElementsByClassName()和getElementsByName(</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81childNodes"><span class="nav-number">3.2.</span> <span class="nav-text">2、childNodes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81children"><span class="nav-number">3.3.</span> <span class="nav-text">3、children</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81firstChild%E5%92%8ClastChild"><span class="nav-number">3.4.</span> <span class="nav-text">4、firstChild和lastChild</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81parentNode%EF%BC%8CpreviousSibling%E5%92%8CnextSibling"><span class="nav-number">3.5.</span> <span class="nav-text">5、parentNode，previousSibling和nextSibling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E7%89%B9%E6%AE%8A%E5%85%A5%E5%8F%A3"><span class="nav-number">3.6.</span> <span class="nav-text">6、特殊入口</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81DOM%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、DOM简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81nodeName%E3%80%81nodeValue%E4%BB%A5%E5%8F%8AnodeType%E5%92%8CinnerHTML%E5%92%8Cvalue"><span class="nav-number">2.</span> <span class="nav-text">二、nodeName、nodeValue以及nodeType和innerHTML和value</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81nodeType"><span class="nav-number">2.1.</span> <span class="nav-text">1、nodeType</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81nodeName"><span class="nav-number">2.2.</span> <span class="nav-text">2、nodeName</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81nodeValue"><span class="nav-number">2.3.</span> <span class="nav-text">3、nodeValue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81innerHTML"><span class="nav-number">2.4.</span> <span class="nav-text">4、innerHTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81value"><span class="nav-number">2.5.</span> <span class="nav-text">5、value</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81HTML-DOM-%E8%AE%BF%E9%97%AE%E8%8A%82%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">三、HTML DOM 访问节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81getElementById-%E5%92%8CgetElementsByTagName-%E5%92%8CgetElementsByClassName-%E5%92%8CgetElementsByName"><span class="nav-number">3.1.</span> <span class="nav-text">1、getElementById()和getElementsByTagName()和getElementsByClassName()和getElementsByName(</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81childNodes"><span class="nav-number">3.2.</span> <span class="nav-text">2、childNodes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81children"><span class="nav-number">3.3.</span> <span class="nav-text">3、children</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81firstChild%E5%92%8ClastChild"><span class="nav-number">3.4.</span> <span class="nav-text">4、firstChild和lastChild</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81parentNode%EF%BC%8CpreviousSibling%E5%92%8CnextSibling"><span class="nav-number">3.5.</span> <span class="nav-text">5、parentNode，previousSibling和nextSibling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E7%89%B9%E6%AE%8A%E5%85%A5%E5%8F%A3"><span class="nav-number">3.6.</span> <span class="nav-text">6、特殊入口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM"><span class="nav-number">4.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFBOM"><span class="nav-number">4.1.</span> <span class="nav-text">1 什么是BOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-BOM%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">4.2.</span> <span class="nav-text">2 BOM的结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-window%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.3.</span> <span class="nav-text">3 window对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">4 常用的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-alert"><span class="nav-number">4.4.1.</span> <span class="nav-text">4.1 alert()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-confirm"><span class="nav-number">4.4.2.</span> <span class="nav-text">4.2 confirm()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BA%8B%E4%BB%B6"><span class="nav-number">4.5.</span> <span class="nav-text">5 常用的事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD"><span class="nav-number">4.5.1.</span> <span class="nav-text">5.1 页面加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E8%B0%83%E6%95%B4%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F"><span class="nav-number">4.5.2.</span> <span class="nav-text">5.2 调整窗口大小</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -131,11 +130,11 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -174,7 +173,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/18/DOM/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/18/DOM+BOM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,12 +186,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="DOM基础 | 莱姆の小站">
+      <meta itemprop="name" content="DOM基础和BOM | 莱姆の小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          DOM基础
+          DOM基础和BOM
         </h1>
 
         <div class="post-meta-container">
@@ -202,9 +201,28 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-08-18 09:45:19 / Modified: 21:13:45" itemprop="dateCreated datePublished" datetime="2022-08-18T09:45:19+08:00">2022-08-18</time>
+      <time title="Created: 2022-08-18 09:45:19" itemprop="dateCreated datePublished" datetime="2022-08-18T09:45:19+08:00">2022-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-08-23 16:53:54" itemprop="dateModified" datetime="2022-08-23T16:53:54+08:00">2022-08-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
     </span>
 
   
@@ -300,7 +318,68 @@
 <h2 id="6、特殊入口"><a href="#6、特殊入口" class="headerlink" title="6、特殊入口"></a>6、特殊入口</h2><p> 访问DOM还有两个特别的入口——document.documentElement和document.body。</p>
 <p>document.documentElement代表&lt;html&gt;元素。</p>
 <p>document.body代表&lt;body&gt;元素，可以为null，比如在body没有呈现的时候引用就是null。</p>
-<p><img src="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typora2022%E7%BA%A7%E5%88%91%E4%BA%8B%E7%A7%91%E5%AD%A6%E6%8A%80%E6%9C%AF%E7%8E%8B%E4%B8%80%E8%AF%BA.png" alt="2022级刑事科学技术王一诺"></p>
+<h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><h2 id="1-什么是BOM"><a href="#1-什么是BOM" class="headerlink" title="1 什么是BOM"></a>1 什么是BOM</h2><p>BOM（Browser Object Model）即浏览器对象模型，它提供了独立于内容而与浏览器窗口进行交互的对象，其核心对象是 window。BOM 由一系列相关的对象构成，并且每个对象都提供了很多方法与属性。</p>
+<blockquote>
+<p>写的不太详细，可以直接翻阅参考文档</p>
+<p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/r.asp#bom">参考手册 (w3school.com.cn)</a></p>
+</blockquote>
+<h2 id="2-BOM的结构"><a href="#2-BOM的结构" class="headerlink" title="2 BOM的结构"></a>2 BOM的结构</h2><p>在 BOM 中包含了 DOM，整个 BOM 结构如下：</p>
+<p><img src="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typora008bwIK2ly1gyjrxm2ea6j30ra06sdhc.jpg" alt="img"></p>
+<h2 id="3-window对象"><a href="#3-window对象" class="headerlink" title="3 window对象"></a>3 window对象</h2><p>window 对象是浏览器的顶级对象，它具有双重角色。</p>
+<ol>
+<li>它是 JavaScript 访问浏览器窗口的一个接口对象。</li>
+<li>它是一个全局对象，所有定义在全局作用域的变量、函数都是它的属性或方法。</li>
+</ol>
+<p>由于所有全局属性和方法都属于 window 对象，因此在调用时是可以省略 window 的。如调用 alert() 方法时，可以写成 window.alert()，但通常都会直接调用 alert() 方法即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">myFunction1</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">myFunction1</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-常用的方法"><a href="#4-常用的方法" class="headerlink" title="4 常用的方法"></a>4 常用的方法</h2><h3 id="4-1-alert"><a href="#4-1-alert" class="headerlink" title="4.1 alert()"></a>4.1 alert()</h3><p>用于在页面中弹出一个警告框，一般用于程序调试。</p>
+<p>使用语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">alert</span>(提示信息);</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">alert</span>(<span class="string">&#x27;start&#x27;</span>)</span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">alert</span>(<span class="string">&#x27;end&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-confirm"><a href="#4-2-confirm" class="headerlink" title="4.2 confirm()"></a>4.2 confirm()</h3><p>消息确认提示框，一般用于删除时进行确认，防止误删除。这个方法可以给定提示信息，执行后会返回一个布尔类型的值。</p>
+<p>使用语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 返回值 = <span class="title function_">confirm</span>(提示信息);</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="title function_">confirm</span>(<span class="string">&#x27;你确定要删除么？&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(f);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_">confirm</span>(<span class="string">&#x27;你确定要删除么？删除后不能恢复！&#x27;</span>)) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;已经成功删除！&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明：confirm() 方法执行后，会返回一个布尔类型的值，根据这个值我们可以进行相应的操作。</p>
+</blockquote>
+<h2 id="5-常用的事件"><a href="#5-常用的事件" class="headerlink" title="5 常用的事件"></a>5 常用的事件</h2><h3 id="5-1-页面加载"><a href="#5-1-页面加载" class="headerlink" title="5.1 页面加载"></a>5.1 页面加载</h3><table>
+<thead>
+<tr>
+<th>事件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>window.onload &#x3D; function(){} window.addEventListener(‘load’, function(){})</td>
+<td>传统方式加载 监听事件方式加载</td>
+</tr>
+<tr>
+<td>window.addEventListener(‘DOMContentLoaded’, function(){})</td>
+<td>监听事件方式加载</td>
+</tr>
+</tbody></table>
+<p>window.onload 是页面加载事件，当文档内容（包括图像、脚本文件、CSS 样式文件等）完全加载完成后会触发该事件——即调用处理函数。window.onload 是传统事件注册方式，只会调用一次，如果在页面中写了多个该事件，只会执行最后一个加载事件。</p>
+<p>使用示例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;页面加载完成！&#x27;</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-调整窗口大小"><a href="#5-2-调整窗口大小" class="headerlink" title="5.2 调整窗口大小"></a>5.2 调整窗口大小</h3><p>当调整页面窗口大小时，会触发 onresize 事件，该事件语法如下。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ol>
+<li>只要窗口大小发生像素变化时就会触发此事件。</li>
+<li>当使用这个事件来实现响应式布局时可以使用 window.innerWidth 属性获取当前屏幕宽度。</li>
+</ol>
+<p>演示案例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;当前窗口宽度为：&#x27;</span> + <span class="variable language_">window</span>.<span class="property">innerWidth</span>);</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;当前窗口高度为：&#x27;</span> + <span class="variable language_">window</span>.<span class="property">innerHeight</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -310,7 +389,6 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/javascript/" rel="tag"># javascript</a>
               <a href="/tags/DOM/" rel="tag"># DOM</a>
           </div>
 
