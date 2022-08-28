@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="一、前言   很久以前就对node.js十分的好奇和感兴趣，因为种种原因没能去深入的认识了解和学习掌握这门技术，最近正好要做一些项目，其中就用到了node.js中的一些东西，所以借着使用的时间来对node.js进行一些剖析，每一种语言都有自己的理念和设计初衷，但是万变不离其宗，最终还是要归结到编译和执行，对于一门新的语言，我们不要急着去记忆语法，最好的方式就是通过问题的形式去不断的积累经验，自然而">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识Node">
+<meta property="og:url" content="http://example.com/2022/08/28/node/index.html">
+<meta property="og:site_name" content="莱姆の小站">
+<meta property="og:description" content="一、前言   很久以前就对node.js十分的好奇和感兴趣，因为种种原因没能去深入的认识了解和学习掌握这门技术，最近正好要做一些项目，其中就用到了node.js中的一些东西，所以借着使用的时间来对node.js进行一些剖析，每一种语言都有自己的理念和设计初衷，但是万变不离其宗，最终还是要归结到编译和执行，对于一门新的语言，我们不要急着去记忆语法，最好的方式就是通过问题的形式去不断的积累经验，自然而">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-28T07:13:21.000Z">
+<meta property="article:modified_time" content="2022-08-28T08:16:43.334Z">
+<meta property="article:author" content="Mr.Lemon">
+<meta property="article:tag" content="node">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/08/28/node/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/08/28/node/","path":"2022/08/28/node/","title":"初识Node"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>初识Node | 莱姆の小站</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">莱姆の小站</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">你所见即是我，好与坏我都不反驳</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BA%8C%E3%80%81node-js%E7%9A%84%E6%80%A7%E8%B4%A8%E3%80%81%E4%BC%98%E7%BC%BA%E7%82%B9%E5%92%8C%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="nav-number">2.</span> <span class="nav-text">二、node.js的性质、优缺点和适用范围</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83"><span class="nav-number">3.</span> <span class="nav-text">三、部署环境</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95%E7%9A%84%E7%A8%8B%E5%BA%8F%E2%80%94%E2%80%94hello%EF%BC%8Cworld%EF%BC%81"><span class="nav-number">4.</span> <span class="nav-text">四、编写简单的程序——hello，world！</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mr.Lemon</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/28/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mr.Lemon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="初识Node | 莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初识Node
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-08-28 15:13:21 / Modified: 16:16:43" itemprop="dateCreated datePublished" datetime="2022-08-28T15:13:21+08:00">2022-08-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h6 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h6><p>   很久以前就对node.js十分的好奇和感兴趣，因为种种原因没能去深入的认识了解和学习掌握这门技术，最近正好要做一些项目，其中就用到了node.js中的一些东西，所以借着使用的时间来对node.js进行一些剖析，每一种语言都有自己的理念和设计初衷，但是万变不离其宗，最终还是要归结到编译和执行，对于一门新的语言，我们不要急着去记忆语法，最好的方式就是通过问题的形式去不断的积累经验，自然而然的那些语法，特殊思想就渐渐地熟能生巧了，<strong>万事开头难</strong>，任何东西到了一定的程度之后都是殊途同归的，本人也学习了很多语言，解释性语言和执行性语言遇到的也比较多，对于node.js在这里就将我自己的学习过程和经验记录下来，一方面是为了以后的查阅和学习，另一方面是为网友的知识库中增砖添瓦，好了，闲言休谈，直入主题！ </p>
+<h6 id="二、node-js的性质、优缺点和适用范围"><a href="#二、node-js的性质、优缺点和适用范围" class="headerlink" title="二、node.js的性质、优缺点和适用范围"></a><strong>二、node.js的性质、优缺点和适用范围</strong></h6><p>   Node.js是一个专注于实现<strong>高性能Web服务器</strong>优化的专家，几经探索，几经挫折后，遇到<strong>V8</strong>而诞生的项目。<strong>Node.js是一个让JavaScript运行在服务器端的开发平台</strong>，它让JavaScript的触角伸到了服务器端，可以与PHP、JSP、Python、Ruby平起平坐。但Node似乎有点不同：Node.js不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的“既是语言，也是平台”不同，Node.js的使用JavaScript进行编程，运行在JavaScript引擎上（V8）。与PHP、JSP等相比（PHP、JSP、.net都需要运行在服务器程序上，Apache、Naginx、Tomcat、IIS。），Node.js跳过了Apache、Naginx、IIS等HTTP服务器，它自己不用建设在任何服务器软件之上。Node.js的许多设计理念与经典架构（LAMP &#x3D; Linux + Apache + MySQL + PHP）有着很大的不同，可以提供强大的伸缩能力。Node.js没有web容器。<strong>Node.js自身哲学，是花最小的硬件成本，追求更高的并发，更高的处理性能。</strong></p>
+<p> <strong>非阻塞I&#x2F;O</strong>：因为CPU的效率是远远高于I&#x2F;O设备的执行效率的，如果让CPU去等待I&#x2F;O的执行，将会极大地浪费时间，降低性能，比如在访问数据库或者读文件的时候，在传统的单线程处理机制中，在执行了访问数据库或文件代码之后，整个线程都将暂停下来（<strong>阻塞I&#x2F;O</strong>），等待数据库或者文件系统返回结果才能执行后面的代码。I&#x2F;O阻塞了代码的执行极大地降低了程序的执行效率。由于Node.js中采用了<strong>非阻塞型I&#x2F;O</strong>机制，因此在执行了访问数据库或文件的代码之后，将立即转而执行其他代码，把返回结果的处理代码放在<strong>回调函数</strong>中，从而提高了程序的执行效率。当某个I&#x2F;O执行完毕时，将以<strong>事件</strong>的形式通知执行I&#x2F;O操作的线程，线程执行这个事件的回调函数。为了处理异步I&#x2F;O，线程必须有事件循环，不断的检查有没有未处理的事件，依次予以处理。阻塞模式下，一个线程只能处理一项任务，要想提高吞吐量必须通过多线程。而非阻塞模式下，一个线程永远在执行计算操作，这个线程的CPU核心利用率永远是100%。所以，这是一种特别有哲理的解决方案：与其人多，但是好多人闲着；还不如一个人玩命，往死里干活儿。</p>
+<p>  <strong>事件驱动</strong>：在Node中，客户端请求建立连接，提交数据等行为，会触发相应的事件。在Node中，在一个时刻，只能执行一个事件回调函数，但是在执行一个事件回调函数的中途，可以转而处理其他事件，然后返回继续执行原事件的回调函数，这种处理机制，称为“事件环”机制。<strong>Node.js底层是C++（V8也是C++写的），</strong>底层代码中，近半数都用于事件队列、回调函数队列的构建。</p>
+<p>  <strong>优缺点</strong>：因为单线程，在处理大规模并发的任务中还是会显得力不从心的，比如在CPU密集型事务中就会遇到瓶颈，另外就是node.js是没有web容器的，代码直接没有根目录的说法，在一定程度上为程序员增加了代码量，但也提高了灵活性，为高级路由带来了极大的方便，在node.js中回调函数会有很深的层次，为代码的阅读多多少少造成了一定的障碍。善于处理异步事件（callback），处理同步事务中需要额外的负担。</p>
+<p>  <strong>适用范围</strong>：当应用程序需要<strong>处理大量并发的I&#x2F;O</strong>，而在向客户端发出响应之前，应用程序内部并不需要进行非常复杂的处理的时候，Node.js非常适合。Node.js也非常适合与<strong>web socket</strong>配合，开发长连接的实时交互应用程序。比如：用户表单收集、考试系统、聊天室、图文直播、提供JSON的API（为前台Angular使用）。</p>
+<h6 id="三、部署环境"><a href="#三、部署环境" class="headerlink" title="三、部署环境"></a><strong>三、部署环境</strong></h6><p>   node.js类似于Java，和Java的虚拟机原理有点相似可以在Linux和Windows机器上运行，但是编程的方式和细微之处还是有差异的，这里主要从Windows的环境中来理解，因为本质上还是语言的设计思想是我们的着重点和兴趣点！</p>
+<p><strong>1,下载node.js</strong></p>
+<p>  这是非常简单的一件事情，可以在<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/%E4%B8%8A%E6%96%B9%E4%BE%BF%E7%9A%84%E4%B8%8B%E8%BD%BD%E9%80%82%E5%90%88%E8%87%AA%E5%B7%B1%E7%94%B5%E8%84%91%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%8C%E8%BF%99%E9%87%8C%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8Windows%E5%B9%B3%E5%8F%B0%E3%80%82">https://nodejs.org/en/download/上方便的下载适合自己电脑的版本，这里我们使用Windows平台。</a></p>
+<p><strong>2,安装node.js</strong></p>
+<p>  只需双击即可完成安装，在这里建议不要将路径放到C盘，这是一种安装软件的共识。并且在安装的过程中，安装向导已经帮我们完成了环境变量的注册，我们可以通过环境变量来查看，这点很浅显，不必再说。</p>
+<p><strong>3,下载sublime</strong></p>
+<p>  因为node.js非常的轻量级，差不多10MB左右，原生的环境是没有GUI的，我们可以先在文本编辑器中编写代码，在这里当然是推荐sublime了，当然notebook也不错~~</p>
+<h6 id="四、编写简单的程序——hello，world！"><a href="#四、编写简单的程序——hello，world！" class="headerlink" title="四、编写简单的程序——hello，world！"></a><strong>四、编写简单的程序——hello，world！</strong></h6><p> 编写了.js的程序，运行的时候就要通过node.js来运行了，首先在CMD中切换到编写程序的目录下，当然也可以不用。然后用node XXX.js即可启动服务。然后在浏览器中（建议用Firefox）输入相应的监听IP地址加上端口号，这里的端口号使用比较大一点的就可以，因为是回环测试，所以使用127.0.0.1来作为测试IP。</p>
+<p>这样一个简单的程序就运行成功了，回顾一下，我们其实是用node.js搭建了一个服务器，然后来监听端口的访问事件，最后做出相应的回应，这样一个简单的例子其实是非常有用的，毕竟我们的服务器已经可以工作了，但是这样也有许多缺陷，比如我们关闭CMD之后服务就关闭了，比如我们运行一次程序需要的过程十分繁琐，这些都会在以后得到解决！</p>
+<p><strong>理解Node的模块概念</strong></p>
+<p>　　在Node中，不同的功能组件被划分成不同的模块。应用可以根据自己的需要来选择使用合适的模块。每个模块都会暴露一些公共的方法或属性。模块的使用者直接使用这些方法或属性即可，对于内部的实现细节就可以不用了解。除了Node本身提供的API外，开发人员也可以利用这个机制来将应用拆分成多个模块，以提高代码的可复用性。</p>
+<p>　　</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/node/" rel="tag"># node</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/25/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" rel="prev" title="JavaScript值类型与引用类型">
+                  <i class="fa fa-chevron-left"></i> JavaScript值类型与引用类型
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr.Lemon</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
