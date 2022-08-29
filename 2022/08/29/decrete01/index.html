@@ -20,28 +20,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="你觉得卑微是因为没有用自己的主观眼在观看自己，而用了社会一般的功利主义的眼光">
+    <meta name="description" content="为了重新复习巩固知识点，同时也为了以后的不时的查阅，在此记录下所有的知识点，希望共勉。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="三毛的回信：给一个不快乐的女孩">
-<meta property="og:url" content="http://example.com/2022/08/17/saomao/index.html">
+<meta property="og:title" content="离散数学（二）">
+<meta property="og:url" content="http://example.com/2022/08/29/decrete01/index.html">
 <meta property="og:site_name" content="莱姆の小站">
-<meta property="og:description" content="你觉得卑微是因为没有用自己的主观眼在观看自己，而用了社会一般的功利主义的眼光">
+<meta property="og:description" content="为了重新复习巩固知识点，同时也为了以后的不时的查阅，在此记录下所有的知识点，希望共勉。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-17T08:47:40.000Z">
-<meta property="article:modified_time" content="2022-08-23T07:17:03.353Z">
+<meta property="og:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typorav2-c186f342ea0a84dca9342af94798ad9b_1440w.jpg">
+<meta property="og:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typorav2-81d4a45d17bd594c17ca56c90644efe8_1440w.jpg">
+<meta property="article:published_time" content="2022-08-29T00:09:58.000Z">
+<meta property="article:modified_time" content="2022-08-29T01:59:17.534Z">
 <meta property="article:author" content="Mr.Lemon">
-<meta property="article:tag" content="三毛">
+<meta property="article:tag" content="离散数学">
+<meta property="article:tag" content="图论">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typorav2-c186f342ea0a84dca9342af94798ad9b_1440w.jpg">
 
 
-<link rel="canonical" href="http://example.com/2022/08/17/saomao/">
+<link rel="canonical" href="http://example.com/2022/08/29/decrete01/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/17/saomao/","path":"2022/08/17/saomao/","title":"三毛的回信：给一个不快乐的女孩"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/29/decrete01/","path":"2022/08/29/decrete01/","title":"离散数学（二）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>三毛的回信：给一个不快乐的女孩 | 莱姆の小站</title>
+<title>离散数学（二） | 莱姆の小站</title>
   
 
 
@@ -104,7 +108,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -117,6 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">一、图的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%97%A0%E5%90%91%E5%9B%BE%E5%8F%8A%E6%9C%89%E5%90%91%E5%9B%BE"><span class="nav-text">一、无向图及有向图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%89%B9%E6%AE%8A%E7%9A%84%E5%9B%BE"><span class="nav-text">一些特殊的图</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -181,7 +186,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/17/saomao/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/29/decrete01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -194,12 +199,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="三毛的回信：给一个不快乐的女孩 | 莱姆の小站">
+      <meta itemprop="name" content="离散数学（二） | 莱姆の小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          三毛的回信：给一个不快乐的女孩
+          离散数学（二）
         </h1>
 
         <div class="post-meta-container">
@@ -209,15 +214,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-08-17 16:47:40" itemprop="dateCreated datePublished" datetime="2022-08-17T16:47:40+08:00">2022-08-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-23 15:17:03" itemprop="dateModified" datetime="2022-08-23T15:17:03+08:00">2022-08-23</time>
+      <time title="创建时间：2022-08-29 08:09:58 / 修改时间：09:59:17" itemprop="dateCreated datePublished" datetime="2022-08-29T08:09:58+08:00">2022-08-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -225,7 +224,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%89%E6%AC%A1%E5%85%83/" itemprop="url" rel="index"><span itemprop="name">三次元</span></a>
+          <a href="/categories/%E5%AD%A6%E6%A0%A1%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">学校课程</span></a>
         </span>
     </span>
 
@@ -239,26 +238,70 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>你觉得卑微是因为没有用自己的主观眼在观看自己，而用了社会一般的功利主义的眼光</p>
-<span id="more"></span>
-
-<p>不快乐的女孩：</p>
-<p>从你短短的自我介绍中，看来十分惊心，二十九岁正当年轻，居然一连串的用了——最低层、贫乏、黯淡、自卑、平凡、卑微、能力有限这许多不正确的定义来形容自己。</p>
-<p>以我个人的经验来说，我也反复思索过许多次，生命的意义和最终目的到底是什么，目前我的答案却只有一个，很简单的一个，那便是“寻求真正的自由”，然后享受生命。</p>
-<p>不快乐的女孩，你的心灵并不自由，对不对？当然，我也没有做到绝对的超越，可是如你信中所写的那些字句，我已不再用在自己身上了，虽然我们比较起来是差不多的。</p>
-<p>如果我是你，第一步要做的事是加重对自我的期许与看重，将信中那一串又一串自卑的字句从生命中一把扫除，再也不轻看自己。</p>
-<p>你有一个正当的职业，租得起一间房间，容貌不差，懂得在上下班之余更进一步探索生命的意义，这都是很优美的事情，为何觉得自己卑微呢？你觉得卑微是因为没有用自己的主观眼在观看自己，而用了社会一般的功利主义的眼光，这是十分遗憾的。</p>
-<p>一个不欣赏自己的人，是难以快乐的。</p>
-<p>当然，由你的来信中，很容易想见你部分的心情，你表达的能力并不弱，由你的文字中，明明白白可以看见一个都市单身女子对于生命的无可奈何与悲哀，这种无可奈何，并不浮浅，是值得看重的。</p>
-<p>很实际的来说，不谈空幻的方法，如果我住在你所谓的“斗室”里，如果是我，第一件会做的事情，就是布置我的房间。我会将房间粉刷成明朗的白色，给自己在窗上做上一幅美丽的窗帘，我在床头放一个普通的小收音机，在墙角做一个书架，给灯泡换一个温暖而温馨的灯罩，然后，我要去花市，仔细的挑几盆看了悦目的盆景，放在我的窗口。如果仍有余钱，我会去买几张名画的复制品——海报似的那种，将它挂在墙上……。这么弄一下，以我的估价，是不会超过四千台币的，当然除了那架收音机之外，一切自己动手做，就省去了工匠费用，而且生活会有趣得多。</p>
-<p>房间布置得美丽，是享受生命改变心情的第一步，在我来说，它不再是斗室了。然后，当我发薪水的时候——如果我是你，我要给自己用极少的钱，去买一件美丽又实用的衣服。如果我觉得心情不够开朗，我很可能去一家美发店，花一百台币修剪一下终年不变的发型，换一个样子，给自己耳目一新的快乐。我会在又发薪水的下一个月，为自己挑几样淡色的化妆品，或者再买一双新鞋。当然，薪水仍然是每个月会领的，下班后也有四五小时的空闲，那时候，我可能去青年会报名学学语文、插花或者其他感兴趣的课程，不要有压力的每周夜间上两次课，是改换环境又充实自己的另一个方式。</p>
-<p>你看，如果我是你，我慢慢的在变了。</p>
-<p>我去上上课，也许可能交到一些朋友，我的小房间既然那么美丽，那么也许偶尔可以请朋友来坐坐，谈谈各自的生活和梦想。</p>
-<p>慢慢的，我不再那么自卑了，我勇于接触善良而有品德的人群（这种人在社会上仍有许多许多)，我会发觉，原来大家都很平凡——可是优美，正如自己一样。我更会发觉，原来一个美丽的生活，并不需要太多的金钱便可以达到。我也不再计较异性对我感不感兴趣，因为我自己的生活一点一点的丰富起来，自得其乐都来不及，还想那么多吗？如果我是你，我会不再等三毛出新书，我自己写札记，写给自己欣赏，我慢慢的会发觉，我自己写的东西也有风格和趣味，我真是一个可爱的女人。</p>
-<p>不快乐的女孩子，请你要行动呀！不要依赖他人给你快乐。你先去将房间布置起来，勉强自己去做，会发觉事情没有你想象的那么难，而且，兴趣是可以寻求的，东试试西试试，只要心中认定喜欢的，便去培养它，成为下班之后的消遣。</p>
-<p>可是，我仍觉得，在这个世界上，最深的快乐，是帮助他人，而不只是在自我的世界里享受——当然，享受自我的生命也是很重要的。你先将自己假想为他人，帮助自己建立起信心，下决心改变一下目前的生活方式，把自己弄得活泼起来，不要任凭生命再做赔本的流逝和伤感，起码你得试一下，尽力的去试一下，好不好？</p>
-<p>享受生命的方法很多很多，问题是你一定要有行动，空想是不行的。下次给我写信的时候，署名快乐的女孩，将那个“不”字删掉了好吗？</p>
-<p>你的朋友三毛上</p>
+        <blockquote>
+<p>为了重新复习巩固知识点，同时也为了以后的不时的查阅，在此记录下所有的知识点，希望共勉。<span id="more"></span></p>
+</blockquote>
+<blockquote>
+<p><strong>参考书籍</strong>:</p>
+<ol>
+<li>《离散数学 (第2版)》 曲婉玲</li>
+<li>《离散数学及其应用》</li>
+</ol>
+</blockquote>
+<h1 id="一、图的基本概念"><a href="#一、图的基本概念" class="headerlink" title="一、图的基本概念"></a>一、图的基本概念</h1><h2 id="一、无向图及有向图"><a href="#一、无向图及有向图" class="headerlink" title="一、无向图及有向图"></a>一、无向图及有向图</h2><ul>
+<li><strong>图的概念</strong>：用图表示对象之间的关系，其中对象表示为顶点，他们之间的联系表示为边</li>
+<li>多重集合：元素可以重复出现的集合。图用G&#x3D;（V,E）表示，V是非空顶点集，E是边集，E的每条表都是V中某一对顶点间的连接。当顶点分别是u,v时，连接这连个顶点的边可以组成一个二元组（u，v），或&lt;u,v&gt;。</li>
+<li>无序积：A&amp;B&#x3D;{ (x,y)|x∈A∧y∈B }</li>
+<li><strong>零图</strong>：G&#x3D;（V,E）中，顶点总数记做|V|,变数记做|E|。如果边数较少，称为稀疏图。一条边也没有的图称为零图。仅有一个顶点的图称为<strong>平凡图，</strong>平凡图比为零图。</li>
+<li><strong>无向图</strong>：G&#x3D;&lt;V,E&gt;,其中定点V是非空有穷集合，其元素称为顶点；边集E为V&amp;V的多重子集，其元素称为无向边（不限定边的方向），简称边。</li>
+<li>有向图：D&#x3D;&lt;V,E&gt;。有向图的基图：用无向边替代有向边</li>
+</ul>
+<p><img src="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typorav2-c186f342ea0a84dca9342af94798ad9b_1440w.jpg" alt="img"></p>
+<ul>
+<li><p>性质：V(G),E(G),V(D),E(D):G和D的顶点集，边集</p>
+</li>
+<li><ul>
+<li>n阶图：n个顶点的图</li>
+<li>零图：E&#x3D; ⊘</li>
+<li>平凡图：一阶零图</li>
+<li>空图：V&#x3D; ⊘</li>
+</ul>
+</li>
+<li><p>顶点和边的关联关系</p>
+</li>
+<li><ul>
+<li>设 e&#x3D;(u,v)是无向图G&#x3D;(V,E)的一条边，称u，v为e的端点，e与u(v)关联，若u ≠ v,则称e与u(v)关联次数为1；若u&#x3D;v,则称e为环，此时称e与u的关联次数为2,；若w不是e端点，则称e与w的关联此时为0，无边关联的顶点称作孤立点。</li>
+</ul>
+</li>
+<li><p><strong>顶点的度数</strong>：</p>
+</li>
+<li><ul>
+<li>设G&#x3D;&lt;V,E&gt;为无向图，v ∈ V,v的度数（度）符号d(v)&#x2F;deg(v):顶点v关联的边数称为该顶点的度数。若v有环，计算度数d(v)增加2；</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://typora-1313391703.cos.ap-beijing.myqcloud.com/typorav2-81d4a45d17bd594c17ca56c90644efe8_1440w.jpg" alt="img"></p>
+<ul>
+<li><p><strong>出度和入度（有向图）</strong></p>
+</li>
+<li><ul>
+<li>设D&#x3D;&lt;V,E&gt;为有向图，v ∈ V.</li>
+<li>v的出度 d+(v) :v作为边的始点次数之和</li>
+<li>v的入度 d—(v) :v作为边的终点次数之和</li>
+<li>v的度数d(v):&#x3D;d—(v)+d+(v)</li>
+<li>所有顶点的入度之和等于所有顶点的出度之和。</li>
+</ul>
+</li>
+</ul>
+<h2 id="一些特殊的图"><a href="#一些特殊的图" class="headerlink" title="一些特殊的图"></a>一些特殊的图</h2><p>n阶零图&#x2F;离散图Nn：n个顶点都是孤立顶点。1阶零图N1称作平凡图。</p>
+<p>k-正则图：所有顶点度数均为k</p>
+<p>n阶完全图kn：任意互异顶点均相邻，是(n-1)-正则图</p>
+<p>n阶竞赛图：基图是n阶完全图的有向图。必然包含哈密顿道路（可由归纳法证明）。</p>
+<p>​         竞赛图可以看作循环赛的比赛结果，但此时通过找哈密尔顿道路确定排名的方法不太公平。</p>
+<p>​         可以先求每个选手与对应对手的得分分量s1&#x3D;(a1,b1,c1,……)，其中a1是A选手战胜的对手数量</p>
+<p>​         然后逐次求第k次的得分分量sk，每个选手在第k级得分是其所战胜的对手在sk-1中的前k-1级得分总和的和</p>
+<p>​         若竞赛题为强连通图，且至少4个参数选手，最后排名一定收敛于固定的序列</p>
+<p>圈图Cn：E&#x3D;</p>
 
     </div>
 
@@ -268,17 +311,21 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E4%B8%89%E6%AF%9B/" rel="tag"># 三毛</a>
+              <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" rel="tag"># 离散数学</a>
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"># 图论</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/08/28/node/" rel="prev" title="初识Node">
+                  <i class="fa fa-chevron-left"></i> 初识Node
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/18/DOM+BOM/" rel="next" title="DOM基础和BOM">
-                  DOM基础和BOM <i class="fa fa-chevron-right"></i>
+                <a href="/2022/08/29/leetcode/" rel="next" title="LeetCode串，堂堂连载！">
+                  LeetCode串，堂堂连载！ <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
