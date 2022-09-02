@@ -21,28 +21,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="你觉得卑微是因为没有用自己的主观眼在观看自己，而用了社会一般的功利主义的眼光">
+    <meta name="description" content="前言大二秋季学期开课周快结束了，笔者通过学校教务系统导入小爱课表的时候遇到了无法解析开发者代码，导入失败的错误。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="三毛的回信：给一个不快乐的女孩">
-<meta property="og:url" content="http://example.com/2022/08/17/saomao/index.html">
+<meta property="og:title" content="小爱课程表AIschedule适配">
+<meta property="og:url" content="http://example.com/2022/09/01/schedule/index.html">
 <meta property="og:site_name" content="莱姆の小站">
-<meta property="og:description" content="你觉得卑微是因为没有用自己的主观眼在观看自己，而用了社会一般的功利主义的眼光">
+<meta property="og:description" content="前言大二秋季学期开课周快结束了，笔者通过学校教务系统导入小爱课表的时候遇到了无法解析开发者代码，导入失败的错误。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-17T08:47:40.000Z">
-<meta property="article:modified_time" content="2022-08-23T07:17:03.353Z">
+<meta property="article:published_time" content="2022-09-01T02:26:05.000Z">
+<meta property="article:modified_time" content="2022-09-02T03:43:50.730Z">
 <meta property="article:author" content="Mr.Lemon">
-<meta property="article:tag" content="三毛">
+<meta property="article:tag" content="课程表">
+<meta property="article:tag" content="脚本">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/08/17/saomao/">
+<link rel="canonical" href="http://example.com/2022/09/01/schedule/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/17/saomao/","path":"2022/08/17/saomao/","title":"三毛的回信：给一个不快乐的女孩"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/09/01/schedule/","path":"2022/09/01/schedule/","title":"小爱课程表AIschedule适配"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>三毛的回信：给一个不快乐的女孩 | 莱姆の小站</title>
+<title>小爱课程表AIschedule适配 | 莱姆の小站</title>
   
 
 
@@ -105,7 +106,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -118,6 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%80%82%E9%85%8D%E8%BF%87%E7%A8%8B"><span class="nav-text">适配过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">开发过程中遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Chrome-Extension%E5%BC%80%E5%8F%91%E5%8D%8F%E8%AE%AE%E5%B0%86%E5%8D%87%E7%BA%A7%E5%88%B0v3"><span class="nav-text">Chrome Extension开发协议将升级到v3</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -182,7 +184,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/17/saomao/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/01/schedule/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -195,12 +197,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="三毛的回信：给一个不快乐的女孩 | 莱姆の小站">
+      <meta itemprop="name" content="小爱课程表AIschedule适配 | 莱姆の小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          三毛的回信：给一个不快乐的女孩
+          小爱课程表AIschedule适配
         </h1>
 
         <div class="post-meta-container">
@@ -211,23 +213,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-08-17 16:47:40" itemprop="dateCreated datePublished" datetime="2022-08-17T16:47:40+08:00">2022-08-17</time>
+      <time title="创建时间：2022-09-01 10:26:05" itemprop="dateCreated datePublished" datetime="2022-09-01T10:26:05+08:00">2022-09-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-23 15:17:03" itemprop="dateModified" datetime="2022-08-23T15:17:03+08:00">2022-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%89%E6%AC%A1%E5%85%83/" itemprop="url" rel="index"><span itemprop="name">三次元</span></a>
-        </span>
+      <time title="修改时间：2022-09-02 11:43:50" itemprop="dateModified" datetime="2022-09-02T11:43:50+08:00">2022-09-02</time>
     </span>
 
   
@@ -237,14 +230,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
+      <span>865</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -255,26 +248,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>你觉得卑微是因为没有用自己的主观眼在观看自己，而用了社会一般的功利主义的眼光</p>
-<span id="more"></span>
-
-<p>不快乐的女孩：</p>
-<p>从你短短的自我介绍中，看来十分惊心，二十九岁正当年轻，居然一连串的用了——最低层、贫乏、黯淡、自卑、平凡、卑微、能力有限这许多不正确的定义来形容自己。</p>
-<p>以我个人的经验来说，我也反复思索过许多次，生命的意义和最终目的到底是什么，目前我的答案却只有一个，很简单的一个，那便是“寻求真正的自由”，然后享受生命。</p>
-<p>不快乐的女孩，你的心灵并不自由，对不对？当然，我也没有做到绝对的超越，可是如你信中所写的那些字句，我已不再用在自己身上了，虽然我们比较起来是差不多的。</p>
-<p>如果我是你，第一步要做的事是加重对自我的期许与看重，将信中那一串又一串自卑的字句从生命中一把扫除，再也不轻看自己。</p>
-<p>你有一个正当的职业，租得起一间房间，容貌不差，懂得在上下班之余更进一步探索生命的意义，这都是很优美的事情，为何觉得自己卑微呢？你觉得卑微是因为没有用自己的主观眼在观看自己，而用了社会一般的功利主义的眼光，这是十分遗憾的。</p>
-<p>一个不欣赏自己的人，是难以快乐的。</p>
-<p>当然，由你的来信中，很容易想见你部分的心情，你表达的能力并不弱，由你的文字中，明明白白可以看见一个都市单身女子对于生命的无可奈何与悲哀，这种无可奈何，并不浮浅，是值得看重的。</p>
-<p>很实际的来说，不谈空幻的方法，如果我住在你所谓的“斗室”里，如果是我，第一件会做的事情，就是布置我的房间。我会将房间粉刷成明朗的白色，给自己在窗上做上一幅美丽的窗帘，我在床头放一个普通的小收音机，在墙角做一个书架，给灯泡换一个温暖而温馨的灯罩，然后，我要去花市，仔细的挑几盆看了悦目的盆景，放在我的窗口。如果仍有余钱，我会去买几张名画的复制品——海报似的那种，将它挂在墙上……。这么弄一下，以我的估价，是不会超过四千台币的，当然除了那架收音机之外，一切自己动手做，就省去了工匠费用，而且生活会有趣得多。</p>
-<p>房间布置得美丽，是享受生命改变心情的第一步，在我来说，它不再是斗室了。然后，当我发薪水的时候——如果我是你，我要给自己用极少的钱，去买一件美丽又实用的衣服。如果我觉得心情不够开朗，我很可能去一家美发店，花一百台币修剪一下终年不变的发型，换一个样子，给自己耳目一新的快乐。我会在又发薪水的下一个月，为自己挑几样淡色的化妆品，或者再买一双新鞋。当然，薪水仍然是每个月会领的，下班后也有四五小时的空闲，那时候，我可能去青年会报名学学语文、插花或者其他感兴趣的课程，不要有压力的每周夜间上两次课，是改换环境又充实自己的另一个方式。</p>
-<p>你看，如果我是你，我慢慢的在变了。</p>
-<p>我去上上课，也许可能交到一些朋友，我的小房间既然那么美丽，那么也许偶尔可以请朋友来坐坐，谈谈各自的生活和梦想。</p>
-<p>慢慢的，我不再那么自卑了，我勇于接触善良而有品德的人群（这种人在社会上仍有许多许多)，我会发觉，原来大家都很平凡——可是优美，正如自己一样。我更会发觉，原来一个美丽的生活，并不需要太多的金钱便可以达到。我也不再计较异性对我感不感兴趣，因为我自己的生活一点一点的丰富起来，自得其乐都来不及，还想那么多吗？如果我是你，我会不再等三毛出新书，我自己写札记，写给自己欣赏，我慢慢的会发觉，我自己写的东西也有风格和趣味，我真是一个可爱的女人。</p>
-<p>不快乐的女孩子，请你要行动呀！不要依赖他人给你快乐。你先去将房间布置起来，勉强自己去做，会发觉事情没有你想象的那么难，而且，兴趣是可以寻求的，东试试西试试，只要心中认定喜欢的，便去培养它，成为下班之后的消遣。</p>
-<p>可是，我仍觉得，在这个世界上，最深的快乐，是帮助他人，而不只是在自我的世界里享受——当然，享受自我的生命也是很重要的。你先将自己假想为他人，帮助自己建立起信心，下决心改变一下目前的生活方式，把自己弄得活泼起来，不要任凭生命再做赔本的流逝和伤感，起码你得试一下，尽力的去试一下，好不好？</p>
-<p>享受生命的方法很多很多，问题是你一定要有行动，空想是不行的。下次给我写信的时候，署名快乐的女孩，将那个“不”字删掉了好吗？</p>
-<p>你的朋友三毛上</p>
+        <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h5><p>大二秋季学期开课周快结束了，笔者通过学校教务系统导入小爱课表的时候遇到了<code>无法解析开发者代码，导入失败</code>的错误。<span id="more"></span></p>
+<p>笔者之前接触过js基础，于是尝试着做出自己学校的课程表适配</p>
+<h5 id="适配过程"><a href="#适配过程" class="headerlink" title="适配过程"></a>适配过程</h5><p>  首先，根据开发者文档里的说明，下载并安装好开发工具；然后，登陆开发账号，创建项目，打开教务系统，就可以开始开发适配工作了。</p>
+<p>  整个适配过程需要完成provider和parser，sections函数，他们分别对应以下文件：</p>
+<blockquote>
+<p><code>scheduleHtmlProvider.js</code>  <code>scheduleHtmlParser.js</code>  scheduleTimer.js</p>
+</blockquote>
+<p>  其中，provider函数的作用是对课程页面进行预处理，截取课程信息的HTML片段，提供给parser函数，它的返回值应该是一个小于1MB的字符串。</p>
+<p>  parser函数的作用是从字符串中提取课程信息，它的返回值是一个符合约定格式的JSON字符串。</p>
+<p><strong>provider</strong><br>  如果课程页面不是特别复杂的话，这部分一般比较简单。通过检查页面源代码，定位到课程表格的部分即可。这里尽量只保留含有课程部分的关键信息，不要有其他的无关HTML片段。</p>
+<p><strong>parser</strong></p>
+<p>这部分的处理，不同学校系统之间的差异可能会非常大</p>
+<p>Praser主要工作在于解析Provider传入的参数并将该解析结果传出。该函数接受html作为参数，传出一个list</p>
+<h5 id="开发过程中遇到的问题"><a href="#开发过程中遇到的问题" class="headerlink" title="开发过程中遇到的问题"></a>开发过程中遇到的问题</h5><h6 id="Chrome-Extension开发协议将升级到v3"><a href="#Chrome-Extension开发协议将升级到v3" class="headerlink" title="Chrome Extension开发协议将升级到v3"></a>Chrome Extension开发协议将升级到v3</h6><blockquote>
+<p>The page you’re viewing describes the Manifest V2 extension platform.</p>
+<p>As of <a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/mv2-sunset/">January 17, 2022</a> Chrome Web Store has stopped accepting new Manifest V2 extensions. We strongly recommend that new extensions target <a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/intro/">Manifest V3</a>.</p>
+<p><strong>June 2023</strong></p>
+<ul>
+<li>Manifest V2 extensions no longer function in Chrome even with the use of enterprise policy</li>
+</ul>
+</blockquote>
 
     </div>
 
@@ -284,18 +278,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E4%B8%89%E6%AF%9B/" rel="tag"># 三毛</a>
+              <a href="/tags/%E8%AF%BE%E7%A8%8B%E8%A1%A8/" rel="tag"># 课程表</a>
+              <a href="/tags/%E8%84%9A%E6%9C%AC/" rel="tag"># 脚本</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2022/08/31/java-basement/" rel="prev" title="java基础">
+                  <i class="fa fa-chevron-left"></i> java基础
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/18/DOM+BOM/" rel="next" title="DOM基础和BOM">
-                  DOM基础和BOM <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
