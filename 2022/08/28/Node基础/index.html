@@ -21,13 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="article">
+    <meta name="description" content="模块机制在Node.js中，所谓的模块，其实就是一个文件。一般而言，就是js文件&#x2F;json文件。一个文件就是一个模块，模块是Node.js应用程序的基本组成部分。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Node基础">
 <meta property="og:url" content="http://example.com/2022/08/28/Node%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="莱姆の小站">
+<meta property="og:description" content="模块机制在Node.js中，所谓的模块，其实就是一个文件。一般而言，就是js文件&#x2F;json文件。一个文件就是一个模块，模块是Node.js应用程序的基本组成部分。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-28T07:13:21.000Z">
-<meta property="article:modified_time" content="2022-08-28T08:20:43.609Z">
+<meta property="article:modified_time" content="2022-09-15T06:25:10.668Z">
 <meta property="article:author" content="Mr.Lemon">
 <meta property="article:tag" content="node">
 <meta name="twitter:card" content="summary">
@@ -85,7 +87,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a></li>
   </ul>
 </nav>
 
@@ -103,7 +105,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -116,6 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E6%9C%BA%E5%88%B6"><span class="nav-text">模块机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%88%86%E7%B1%BB"><span class="nav-text">模块分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97"><span class="nav-text">加载模块</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97%E7%9A%84%E8%BD%BD%E5%85%A5"><span class="nav-text">（1）核心模块的载入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E5%9D%97%E7%9A%84%E8%BD%BD%E5%85%A5"><span class="nav-text">（2）第三方模块的载入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E5%8A%A0%E8%BD%BD%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97"><span class="nav-text">（3）加载自定义模块</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-text">自定义模块的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E6%A8%A1%E5%9D%97"><span class="nav-text">工具模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fs%EF%BC%9A"><span class="nav-text">fs：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#path%EF%BC%9A"><span class="nav-text">path：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#WEB%E6%A8%A1%E5%9D%97"><span class="nav-text">WEB模块</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -130,7 +133,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -141,7 +144,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -208,9 +211,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-28 15:13:21 / 修改时间：16:20:43" itemprop="dateCreated datePublished" datetime="2022-08-28T15:13:21+08:00">2022-08-28</time>
+      <time title="创建时间：2022-08-28 15:13:21" itemprop="dateCreated datePublished" datetime="2022-08-28T15:13:21+08:00">2022-08-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-15 14:25:10" itemprop="dateModified" datetime="2022-09-15T14:25:10+08:00">2022-09-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -229,7 +238,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -247,7 +256,48 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        
+        <h2 id="模块机制"><a href="#模块机制" class="headerlink" title="模块机制"></a>模块机制</h2><p>在Node.js中，所谓的模块，其实就是一个文件。一般而言，就是js文件&#x2F;json文件。一个文件就是一个模块，模块是Node.js应用程序的基本组成部分。<span id="more"></span></p>
+<h3 id="模块分类"><a href="#模块分类" class="headerlink" title="模块分类"></a>模块分类</h3><p>简单划分，可以将Node.js中的模块分成两大类：</p>
+<ul>
+<li>系统模块（核心模块）</li>
+<li>用户模块</li>
+</ul>
+<p>其中，系统模块是Node.js自带的模块，比如http、fs、net、url、path等，可以直接使用。核心模块，Node.js中是内置好的。</p>
+<p>用户模块不是Node.js本身的，又可以分为两种：</p>
+<ul>
+<li>第三方模块，一些比较通用的，但是Node.js自身没有提供的，这一类数量很庞大</li>
+<li>自定义模块，通常是在当前项目中，需要根据需求自己编写的js代码</li>
+</ul>
+<h3 id="加载模块"><a href="#加载模块" class="headerlink" title="加载模块"></a>加载模块</h3><p>如何在Node.js中加载模块呢？</p>
+<p>根据模块类型的不同，加载的方式略有不同。相同的是，都会使用 <code>require</code> 函数。格式：require(模块路径);</p>
+<p>模块路径的写法，根据模块类型的不同，写法也不同：</p>
+<ul>
+<li>核心模块和第三方模块的写法一样，只需要写上模块名即可。</li>
+<li>自定义模块，需要使用相对路径来引入，必须使用 <code>./</code> 或者 <code>../</code> 开头。</li>
+</ul>
+<h5 id="（1）核心模块的载入"><a href="#（1）核心模块的载入" class="headerlink" title="（1）核心模块的载入"></a>（1）核心模块的载入</h5><p>核心模块是Node.js自带的，本身就具备的，直接载入就可以使用。</p>
+<h5 id="（2）第三方模块的载入"><a href="#（2）第三方模块的载入" class="headerlink" title="（2）第三方模块的载入"></a>（2）第三方模块的载入</h5><p>首先，需要保证有一个第三方模块，需要先安装第三方模块，使用npm 命令安装即可。</p>
+<p>npm install 模块名。</p>
+<p>本地安装的时候，需要先进入对应的目录，使用命令来安装。</p>
+<p>虽然，加载模块的写法和核心模块一样，但是原理不太一样。如果是第三方模块，它最加载的时候，一定会在当前目录下，寻找 node_modules文件夹，在里面找对应的这模块，如果找到，就直接使用。如果没有找到，则会到父级目录中找node_modules文件夹，找是否有该模块，重复这个过程，直到根目录。如果到根目录，也没有找到，就会报错。</p>
+<h5 id="（3）加载自定义模块"><a href="#（3）加载自定义模块" class="headerlink" title="（3）加载自定义模块"></a>（3）加载自定义模块</h5><p>先创建一个模块，其实就是一个js文件：mymodule.js</p>
+<p>然后，使用require引入，<code>const myModule = require(&#39;./mymodule.js&#39;);</code></p>
+<p>如果没有使用相对路径，会报错。</p>
+<p>还有几个细节需要注意一下：</p>
+<ul>
+<li>模块就是文件，一般就是js文件，js文件是有后缀的，后缀是可以省略的，核心模块和第三方模块必须省略，自定义模块比较随意，两种都行。</li>
+<li>如果没有写后缀，<code>require</code> 方法在加载的时候，当文件不带后缀,Node.js会依照 目录 -&gt;.js-&gt; .json-&gt; .node 的顺序进行查找，如果所有模块路径都找不到该文件,则抛出异常。</li>
+</ul>
+<h4 id="自定义模块的实现"><a href="#自定义模块的实现" class="headerlink" title="自定义模块的实现"></a>自定义模块的实现</h4><p>默认情况下，任何一个模块，被载入时，得到的是一个空对象，就是 <code>module.exports</code>；我们可以直接在js文件中使用<code>module.exports</code>。</p>
+<p>在Node.js中，还有一个对象<code>exports</code>，它实际上是<code>module.exports</code>的一个引用，相当于<code>exports = module.exports</code>。</p>
+<p>如果使用的是<code>module.exports</code>，那么直接赋值即可，如果使用的是<code>exports</code>,不能直接赋值，原因很简单嘛，又涉及到了对象数值的传递了。所以小结一下：</p>
+<p>任何一个模块（js文件）被 <code>require</code> 时，返回的是 <code>module.exports</code> 对象，默认为空。Node.js为了方便，提供了一个<code>exports</code>对象，指向<code>module.exports</code>，相当于执行了<code>exports=module.exports</code>。如果需要提供对外接口，需要给<code>module.exports</code>赋值为一个新的对象，或者使用<code>exports.属性名=值</code>的形式。</p>
+<p>为了保险起见，我们可以写成：<code>exports = module.exports = &#123;&#125;</code>。</p>
+<h5 id="工具模块"><a href="#工具模块" class="headerlink" title="工具模块"></a>工具模块</h5><h5 id="fs："><a href="#fs：" class="headerlink" title="fs："></a>fs：</h5><p><a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-fs.html">基础的文件操作 API</a></p>
+<h5 id="path："><a href="#path：" class="headerlink" title="path："></a>path：</h5><p>[提供和路径相关的操作 API</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-path-module.html"></a></p>
+<h5 id="WEB模块"><a href="#WEB模块" class="headerlink" title="WEB模块"></a>WEB模块</h5><p><a target="_blank" rel="noopener" href="https://www.runoob.com/nodejs/nodejs-web-module.html">Node.js Web 模块 | 菜鸟教程 (runoob.com)</a></p>
+
     </div>
 
     
@@ -263,7 +313,7 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/28/node/" rel="prev" title="初识Node">
+                <a href="/2022/08/28/%E5%88%9D%E8%AE%A4%E8%AF%86node/" rel="prev" title="初识Node">
                   <i class="fa fa-chevron-left"></i> 初识Node
                 </a>
             </div>
@@ -303,14 +353,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">39k</span>
+    <span title="站点总字数">45k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">36 分钟</span>
+    <span title="站点阅读时长">41 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动

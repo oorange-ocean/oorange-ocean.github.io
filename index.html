@@ -82,7 +82,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">13</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a></li>
   </ul>
 </nav>
 
@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -138,7 +138,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -167,6 +167,258 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/16/nunjucks%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Mr.Lemon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/16/nunjucks%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" class="post-title-link" itemprop="url">nunjucks模板引擎</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-16 10:39:21" itemprop="dateCreated datePublished" datetime="2022-09-16T10:39:21+08:00">2022-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-17 16:50:57" itemprop="dateModified" datetime="2022-09-17T16:50:57+08:00">2022-09-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="模板原理"><a href="#模板原理" class="headerlink" title="模板原理"></a>模板原理</h2><p>模板的诞生是为了将显示与数据分离，模板技术多种多样，但其本质是将模板文件和数据通过模板引擎生成最终的HTML代码</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dojo-lzz/p/5518474.html">浅谈模板引擎 </a></p>
+<h2 id="nunjucks模板引擎"><a href="#nunjucks模板引擎" class="headerlink" title="nunjucks模板引擎"></a>nunjucks模板引擎</h2><p>根据用户请求路径的不同响应不同的页面，直接发送html页面</p>
+<p>模板引擎可以解决这个问题，通过模板引擎，可以直接设置响应的html页面，并且可以把后台数据绑定到模板中，然后发送给客户端。</p>
+<h3 id="1-安装nunjucks"><a href="#1-安装nunjucks" class="headerlink" title="1.安装nunjucks"></a>1.安装nunjucks</h3><p>在koa框架下安装nunjucks需要两个第三方模块</p>
+<ul>
+<li>koa-views：负责配置koa的模板引擎</li>
+<li>nunjucks：下载模板引擎</li>
+</ul>
+<p>执行命令安装这两个模块</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save koa-views</span><br><span class="line">cnpm install --save nunjucks</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-创建文件夹，views方法定义路径，和文件index-html"><a href="#2-创建文件夹，views方法定义路径，和文件index-html" class="headerlink" title="2.创建文件夹，views方法定义路径，和文件index.html"></a>2.创建文件夹，views方法定义路径，和文件index.html</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">创建一个views文件夹，新建一个index.html文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-koa-views方法"><a href="#3-koa-views方法" class="headerlink" title="3.koa-views方法"></a>3.koa-views方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.app.use(views(__dirname+&#x27;/views&#x27;,&#123;map:&#123;html:&#x27;nunjucks&#x27;&#125;&#125;))</span><br><span class="line">2.使用views方法来定义 模板引擎的路径和使用哪一个模板引擎</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-render方法"><a href="#4-render方法" class="headerlink" title="4.render方法"></a>4.render方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(async ctx=&gt;&#123;</span><br><span class="line">    ctx.render(&#x27;index&#x27;,&#123;title:&quot;这是从后台传过去的数据&quot;&#125;)</span><br><span class="line">&#125;)</span><br><span class="line">render的方法定义的是  文件名（无后缀）和传过去的参数</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">const koa=require(&#x27;koa&#x27;)</span><br><span class="line">const app=new koa()</span><br><span class="line"></span><br><span class="line">const nunjucks=require(&#x27;nunjucks&#x27;)</span><br><span class="line">const views=require(&#x27;koa-views&#x27;)</span><br><span class="line"></span><br><span class="line">//用nunjucks引擎渲染html文件</span><br><span class="line">//views（第一个参数是模板引擎所在的路径，，第二个参数是设置引擎渲染的文件）</span><br><span class="line">app.use(views(__dirname+&#x27;/views&#x27;,&#123;map:&#123;html:&#x27;nunjucks&#x27;&#125;</span><br><span class="line">&#125;))</span><br><span class="line">app.use(async ctx=&gt;&#123;</span><br><span class="line">    await ctx.render(&quot;index&quot;,&#123;title:&#x27;我的主页home page---&#x27;&#125;)</span><br><span class="line">    //render(第一个参数的文档的名字（无后缀）,第二个参数可以给模板传递参数)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(3000,()=&gt;&#123;</span><br><span class="line">    console.log(&#x27;server is running!&#x27;)</span><br><span class="line">&#125;)</span><br><span class="line">-------------------</span><br><span class="line">    node nunjucks.js</span><br><span class="line">-------------------</span><br><span class="line">    访问页面 http://127.0.0.1:3000/</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;</span><br><span class="line">  &lt;title&gt;nunjucks模板引擎&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;head&quot;&gt; &#123;&#123;title&#125;&#125;后台传过来的参数&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/15/koa%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Mr.Lemon">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 莱姆の小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/15/koa%E6%A1%86%E6%9E%B6/" class="post-title-link" itemprop="url">koa框架</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-15 14:26:21" itemprop="dateCreated datePublished" datetime="2022-09-15T14:26:21+08:00">2022-09-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-16 10:37:37" itemprop="dateModified" datetime="2022-09-16T10:37:37+08:00">2022-09-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>歪个楼，先写一下关于nodemon的部分</p>
+<h6 id="nodemon使用简介"><a href="#nodemon使用简介" class="headerlink" title="nodemon使用简介"></a><strong>nodemon使用简介</strong></h6><p>nodemon用来监视node.js应用程序中的任何更改并自动重启服务,非常适合用在开发环境中。</p>
+<p>nodemon将监视启动目录中的文件，如果有任何文件更改，nodemon将自动重新启动node应用程序。</p>
+<p>nodemon不需要对代码或开发方式进行任何更改。 nodemon只是简单的包装你的node应用程序，并监控任何已经改变的文件。nodemon只是node的替换包，只是在运行脚本时将其替换命令行上的node。</p>
+<p>和vscode上的live server脚本插件有点像，不过是服务器端的。</p>
+<h6 id="Koa中间件"><a href="#Koa中间件" class="headerlink" title="Koa中间件"></a><strong>Koa中间件</strong></h6><blockquote>
+<p>中间件是为应用提供通用服务和功能的软件。数据管理、应用服务、消息传递、身份验证和 API 管理通常都要通过中间件。</p>
+<p>中间件可以帮助开发人员更有效地构建应用。它就如同是应用、数据与用户之间的纽带。</p>
+<p>对于具有多云和容器化环境的企业而言，中间件可以助您大规模、经济高效地开发和运行应用。</p>
+</blockquote>
+<p>Koa的中间件很像Express的中间件，也是对HTTP请求进行处理的函数，但是必须是一个Generator函数即 function *(){} 语法，不然会报错。可以这么说，Nodejs的Web程序中任何请求和响应都是中间件在操作。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app</span><br><span class="line">.<span class="keyword">use</span>(<span class="title function_ invoke__">logger</span>())               <span class="comment">//日志中间件</span></span><br><span class="line">.<span class="keyword">use</span>(<span class="title function_ invoke__">serve</span>(__dirname + <span class="string">&#x27;/public&#x27;</span>))        <span class="comment">//静态文件指定中间件</span></span><br><span class="line">.<span class="keyword">use</span>(router.<span class="title function_ invoke__">routes</span>())          <span class="comment">//路由中间件</span></span><br><span class="line">.<span class="keyword">use</span>(router.<span class="title function_ invoke__">allowedMethods</span>());             <span class="comment">//路由中间件</span></span><br></pre></td></tr></table></figure>
+
+<p>app.use 加载用于处理http请求的middleware（中间件），当一个请求来的时候，会依次被这些 middlewares处理。执行的顺序是你定义的顺序。中间件的执行顺序规则是类似“栈”的结构，所有需要执行的中间件都被一个一个放入“栈”中，当没有遇到next()的时候，“栈”里边的这些中间件被逆序执行。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> app.use(function *(next)&#123;</span><br><span class="line"><span class="keyword">this</span>; <span class="comment">// is the Context</span></span><br><span class="line"><span class="keyword">this</span>.request; <span class="comment">// is a Koa Request</span></span><br><span class="line"><span class="keyword">this</span>.response; <span class="comment">// is a Koa Response</span></span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>说明：<br>　　•this是上下文<br>　　•*代表es6里的generator<br>　　http模型里的请求和响应<br>　　•this.request<br>　　•this.response<br>　　app.use() 究竟发生了什么不可思议的化学反应呢？ 其实 app.use() 就干了一件事，就是将中间件放入一个数组，真正执行逻辑的是：app.listen(3000); Koa 的 listen() 除了指定了 http 服务的端口号外，还会启动 http server，等价于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line">	http.<span class="title function_">createServer</span>(app.<span class="title function_">callback</span>()).<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>后面这种繁琐的形式有什么用呢？<br>　　一个典型的场景是启动 https 服务，默认 app.listen(); 是启动 http 服务，启动 https 服务就需要：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> https = <span class="built_in">require</span>(<span class="string">&#x27;https&#x27;</span>);</span><br><span class="line">https.<span class="title function_">createServer</span>(app.<span class="title function_">callback</span>()).<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h6 id="Koa路由设置"><a href="#Koa路由设置" class="headerlink" title="Koa路由设置"></a><strong>Koa路由设置</strong></h6><p>　　Koa是个极简的web框架，简单到连路由模块都没有配备。自己手写路由是这样的：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="keyword">use</span>(<span class="function"><span class="keyword">function</span> *(<span class="params"></span>)</span>&#123;</span><br><span class="line">   	<span class="comment">//我是首页</span></span><br><span class="line">   	<span class="keyword">if</span>(this.path===<span class="string">&#x27;/&#x27;</span>)&#123;</span><br><span class="line">   	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>使用更加强大的路由中间件，Koa中设置路由一般安装Koa-router，Koa-router支持五种方法</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router<span class="selector-class">.get</span>()</span><br><span class="line">router<span class="selector-class">.post</span>()</span><br><span class="line">router<span class="selector-class">.put</span>()</span><br><span class="line">router<span class="selector-class">.del</span>()</span><br><span class="line">router<span class="selector-class">.patch</span>()</span><br></pre></td></tr></table></figure>
+
+<p>GET方法举例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="keyword">require</span>(<span class="string">&#x27;koa&#x27;</span>)();</span><br><span class="line"><span class="keyword">var</span> Router = <span class="keyword">require</span>(<span class="string">&#x27;koa-router&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> myRouter = <span class="keyword">new</span> <span class="title class_">Router</span>();</span><br><span class="line">myRouter.<span class="title function_ invoke__">get</span>(<span class="string">&#x27;/&#x27;</span>, function *(next) &#123;</span><br><span class="line">	 <span class="keyword">yield</span> this.<span class="title function_ invoke__">render</span>(<span class="string">&#x27;index&#x27;</span>,&#123;<span class="attr">layout</span>:<span class="literal">false</span>&#125;);</span><br><span class="line">&#125;);</span><br><span class="line">app.<span class="keyword">use</span>(myRouter.<span class="title function_ invoke__">routes</span>());</span><br><span class="line">app.<span class="title function_ invoke__">listen</span>(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h6 id="Koa静态文件指定"><a href="#Koa静态文件指定" class="headerlink" title="Koa静态文件指定"></a><strong>Koa静态文件指定</strong></h6><p>　　Koa静态文件指定中间件Koa-static，npm install Koa-static之后就可以使用Koa-static负责托管 Koa 应用内的静态资源。映射了静态文件目录，引用的时候直接去该目录下寻找资源，会减少一些消耗。（不知道讲的准确不准确，只是个人的理解）指定public为静态文件目录的代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> staticServer = <span class="keyword">require</span>(<span class="string">&#x27;koa-static&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="keyword">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line">app.<span class="keyword">use</span>(<span class="title function_ invoke__">staticServer</span>(path.<span class="title function_ invoke__">join</span>(__dirname,<span class="string">&#x27;public&#x27;</span>)));</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2017/08/koa.html">Koa 框架教程 - 阮一峰的网络日志 (ruanyifeng.com)</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -212,7 +464,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-02 11:43:50" itemprop="dateModified" datetime="2022-09-02T11:43:50+08:00">2022-09-02</time>
+      <time title="修改时间：2022-09-02 11:45:06" itemprop="dateModified" datetime="2022-09-02T11:45:06+08:00">2022-09-02</time>
     </span>
 
   
@@ -240,7 +492,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h5><p>大二秋季学期开课周快结束了，笔者通过学校教务系统导入小爱课表的时候遇到了<code>无法解析开发者代码，导入失败</code>的错误。
+          <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h5><p>大二秋季学期开课周快结束了，笔者通过学校教务系统导入小爱课表的时候遇到了<code>无法解析开发者代码，导入失败</code>的错误。笔者之前接触过js基础，于是尝试着做出自己学校的课程表适配
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/09/01/schedule/#more" rel="contents">
@@ -606,9 +858,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-28 15:13:21 / 修改时间：16:20:43" itemprop="dateCreated datePublished" datetime="2022-08-28T15:13:21+08:00">2022-08-28</time>
+      <time title="创建时间：2022-08-28 15:13:21" itemprop="dateCreated datePublished" datetime="2022-08-28T15:13:21+08:00">2022-08-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-15 14:25:10" itemprop="dateModified" datetime="2022-09-15T14:25:10+08:00">2022-09-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -627,7 +885,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -645,7 +903,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h2 id="模块机制"><a href="#模块机制" class="headerlink" title="模块机制"></a>模块机制</h2><p>在Node.js中，所谓的模块，其实就是一个文件。一般而言，就是js文件&#x2F;json文件。一个文件就是一个模块，模块是Node.js应用程序的基本组成部分。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/28/Node%E5%9F%BA%E7%A1%80/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -671,7 +937,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/28/node/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/28/%E5%88%9D%E8%AE%A4%E8%AF%86node/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -689,7 +955,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/28/node/" class="post-title-link" itemprop="url">初识Node</a>
+          <a href="/2022/08/28/%E5%88%9D%E8%AE%A4%E8%AF%86node/" class="post-title-link" itemprop="url">初识Node</a>
         </h2>
 
         <div class="post-meta-container">
@@ -699,9 +965,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-08-28 15:13:21 / 修改时间：16:22:02" itemprop="dateCreated datePublished" datetime="2022-08-28T15:13:21+08:00">2022-08-28</time>
+      <time title="创建时间：2022-08-28 15:13:21" itemprop="dateCreated datePublished" datetime="2022-08-28T15:13:21+08:00">2022-08-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-04 10:03:08" itemprop="dateModified" datetime="2022-09-04T10:03:08+08:00">2022-09-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -741,7 +1013,7 @@
           <h4 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a><strong>一、前言</strong></h4><p>   很久以前就对node.js十分的好奇和感兴趣，因为种种原因没能去深入的认识了解和学习掌握这门技术，最近正好要做一些项目，其中就用到了node.js中的一些东西，所以借着使用的时间来对node.js进行一些剖析
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/08/28/node/#more" rel="contents">
+              <a class="btn" href="/2022/08/28/%E5%88%9D%E8%AE%A4%E8%AF%86node/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -971,235 +1243,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/20/event/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Mr.Lemon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/20/event/" class="post-title-link" itemprop="url">(转载）JavaScript事件详解</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-08-20 17:08:19" itemprop="dateCreated datePublished" datetime="2022-08-20T17:08:19+08:00">2022-08-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-23 15:15:51" itemprop="dateModified" datetime="2022-08-23T15:15:51+08:00">2022-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>20k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>19 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1-事件注册"><a href="#1-事件注册" class="headerlink" title="1 事件注册"></a>1 事件注册</h2><p>给元素添加事件就称之为注册事件，注册事件也叫绑定事件。注册事件有两种方式：</p>
-<ul>
-<li>传统注册方式</li>
-<li>监听注册方式</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/20/event/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/19/dom-operation/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Mr.Lemon">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 莱姆の小站">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/19/dom-operation/" class="post-title-link" itemprop="url">DOM操作</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-08-19 10:08:19" itemprop="dateCreated datePublished" datetime="2022-08-19T10:08:19+08:00">2022-08-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-23 15:15:59" itemprop="dateModified" datetime="2022-08-23T15:15:59+08:00">2022-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1、创建新元素（节点）"><a href="#1、创建新元素（节点）" class="headerlink" title="1、创建新元素（节点）"></a>1、创建新元素（节点）</h2><ul>
-<li>createElement()&#x2F;&#x2F;创建一具体的元素</li>
-<li>createTextNode()&#x2F;&#x2F;创建一个文本节点</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/19/dom-operation/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1225,14 +1268,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">39k</span>
+    <span title="站点总字数">45k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">36 分钟</span>
+    <span title="站点阅读时长">41 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
