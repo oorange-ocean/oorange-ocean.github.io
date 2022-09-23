@@ -212,7 +212,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-17 16:50:57" itemprop="dateModified" datetime="2022-09-17T16:50:57+08:00">2022-09-17</time>
+      <time title="修改时间：2022-09-23 10:51:54" itemprop="dateModified" datetime="2022-09-23T10:51:54+08:00">2022-09-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -231,7 +231,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
+      <span>2.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -251,7 +251,8 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="模板原理"><a href="#模板原理" class="headerlink" title="模板原理"></a>模板原理</h2><p>模板的诞生是为了将显示与数据分离，模板技术多种多样，但其本质是将模板文件和数据通过模板引擎生成最终的HTML代码</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dojo-lzz/p/5518474.html">浅谈模板引擎 </a></p>
-<h2 id="nunjucks模板引擎"><a href="#nunjucks模板引擎" class="headerlink" title="nunjucks模板引擎"></a>nunjucks模板引擎</h2><p>根据用户请求路径的不同响应不同的页面，直接发送html页面</p>
+<h2 id="nunjucks模板引擎"><a href="#nunjucks模板引擎" class="headerlink" title="nunjucks模板引擎"></a>nunjucks模板引擎</h2><p><a target="_blank" rel="noopener" href="http://mozilla.github.io/nunjucks/templating.html">Nunjucks (mozilla.github.io)</a></p>
+<p>根据用户请求路径的不同响应不同的页面，直接发送html页面</p>
 <p>模板引擎可以解决这个问题，通过模板引擎，可以直接设置响应的html页面，并且可以把后台数据绑定到模板中，然后发送给客户端。</p>
 <h3 id="1-安装nunjucks"><a href="#1-安装nunjucks" class="headerlink" title="1.安装nunjucks"></a>1.安装nunjucks</h3><p>在koa框架下安装nunjucks需要两个第三方模块</p>
 <ul>
@@ -268,6 +269,16 @@
 <h3 id="4-render方法"><a href="#4-render方法" class="headerlink" title="4.render方法"></a>4.render方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(async ctx=&gt;&#123;</span><br><span class="line">    ctx.render(&#x27;index&#x27;,&#123;title:&quot;这是从后台传过去的数据&quot;&#125;)</span><br><span class="line">&#125;)</span><br><span class="line">render的方法定义的是  文件名（无后缀）和传过去的参数</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">const koa=require(&#x27;koa&#x27;)</span><br><span class="line">const app=new koa()</span><br><span class="line"></span><br><span class="line">const nunjucks=require(&#x27;nunjucks&#x27;)</span><br><span class="line">const views=require(&#x27;koa-views&#x27;)</span><br><span class="line"></span><br><span class="line">//用nunjucks引擎渲染html文件</span><br><span class="line">//views（第一个参数是模板引擎所在的路径，，第二个参数是设置引擎渲染的文件）</span><br><span class="line">app.use(views(__dirname+&#x27;/views&#x27;,&#123;map:&#123;html:&#x27;nunjucks&#x27;&#125;</span><br><span class="line">&#125;))</span><br><span class="line">app.use(async ctx=&gt;&#123;</span><br><span class="line">    await ctx.render(&quot;index&quot;,&#123;title:&#x27;我的主页home page---&#x27;&#125;)</span><br><span class="line">    //render(第一个参数的文档的名字（无后缀）,第二个参数可以给模板传递参数)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.listen(3000,()=&gt;&#123;</span><br><span class="line">    console.log(&#x27;server is running!&#x27;)</span><br><span class="line">&#125;)</span><br><span class="line">-------------------</span><br><span class="line">    node nunjucks.js</span><br><span class="line">-------------------</span><br><span class="line">    访问页面 http://127.0.0.1:3000/</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;</span><br><span class="line">  &lt;title&gt;nunjucks模板引擎&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;head&quot;&gt; &#123;&#123;title&#125;&#125;后台传过来的参数&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="nunjucks-模板语法基本使用"><a href="#nunjucks-模板语法基本使用" class="headerlink" title="nunjucks 模板语法基本使用"></a>nunjucks 模板语法基本使用</h4><p><strong>插入后台传入前台变量</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;变量名&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>循环后台数据</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">ul</span>&gt;</span><br><span class="line">&#123;% for item in items%&#125;</span><br><span class="line">  &lt;<span class="selector-tag">li</span>&gt;&#123;&#123; item<span class="selector-class">.title</span> &#125;&#125;&lt;/<span class="selector-tag">li</span>&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line">&lt;/<span class="selector-tag">ul</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>if</strong></p>
+<p><code>if</code> tests a condition and lets you selectively display content. It behaves exactly as javascript’s <code>if</code> behaves.</p>
+<figure class="highlight jinja"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> variable %&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  It is true</span></span><br><span class="line"><span class="language-xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
